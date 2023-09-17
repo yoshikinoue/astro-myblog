@@ -23,7 +23,20 @@ export default defineConfig({
       {
         name: "post",
         label: "Posts",
-        path: "content/posts",
+        path: "src/content/blog",
+        ui: {
+          filename: {
+            // if disabled, the editor can not edit the filename
+            readonly: true,
+            // Example of using a custom slugify function
+            slugify: (values) => {
+              // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+              return `${values?.postSlug
+                ?.toLowerCase()
+                .replace(/ /g, '-')}`
+            },
+          },
+        },
         fields: [
           {
             type: "string",
@@ -33,11 +46,40 @@ export default defineConfig({
             required: true,
           },
           {
+            name: 'draft',
+            label: 'Draft',
+            type: 'boolean',
+            required: true,
+            description: 'If this is checked the post will not be published',
+          },
+          {
+            type: "string",
+            name: "postSlug",
+            label: "postSlug",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+            ui: {
+              component: 'tags',
+            }
+          },
+          {
+            type: "datetime",
+            name: "pubDatetime",
+            label: "Date Posted",
+            required: true,
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Body",
             isBody: true,
           },
+
         ],
       },
     ],
