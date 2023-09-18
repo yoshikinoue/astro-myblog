@@ -10,7 +10,7 @@ tags:
 
 ## lead_time_value Delimiter not found
 
-```csv
+```
 hoge1,hoge2,hoge3,hoge5
 0,1,2,4
 0,1,2,4

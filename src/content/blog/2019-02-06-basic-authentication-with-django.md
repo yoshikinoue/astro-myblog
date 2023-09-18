@@ -59,7 +59,7 @@ MIDDLEWARE_CLASSES = (
 
 wsgi.conf
 
-```conf
+```
 #Basic認証を有効に
 WSGIPassAuthorization On
 ```

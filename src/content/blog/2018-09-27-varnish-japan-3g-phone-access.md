@@ -46,7 +46,7 @@ if (req.http.host ~ "^hogehoge.com") {
 
 ## docomo_iplist.vcl
 
-```docomo_iplist.vcl
+```
 "210.153.84.0"/24;
 "210.136.161.0"/24;
 "210.153.86.0"/24;

@@ -30,7 +30,7 @@ varnish61/el/6/$basearch
 ↓
 varnish61/el/7/$basearch
 
-```/etc/yum.repos.d/varnishcache_varnish61.repo
+```
 [varnishcache_varnish61]
 name=varnishcache_varnish61
 baseurl=https://packagecloud.io/varnishcache/varnish61/el/7/$basearch
@@ -187,7 +187,7 @@ sudo systemctl enable varnish
 sudo vim /etc/systemd/system/varnish.service
 ```
 
-```/etc/systemd/system/varnish.service
+```
 [Unit]
 Description=Varnish Cache, a high-performance HTTP accelerator
 After=network-online.target

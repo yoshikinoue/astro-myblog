@@ -17,7 +17,7 @@ s3://outputlocation/ #utf8 で gzip で圧縮したファイル置き場
 
 ### INPUT1_STAGING_DIR
 
-```TIPS
+```json
     {
       "directoryPath": "s3://inputlocation/",
       "name": "S3InputLocation",

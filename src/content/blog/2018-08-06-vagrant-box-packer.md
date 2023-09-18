@@ -43,7 +43,7 @@ git clone [https://github.com/geerlingguy/packer-centos-7.git](https://github.co
 
 ### centos7.json の編集
 
-```centos7.json
+```json
 =============================
 "builders": [
     {
