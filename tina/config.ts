@@ -14,7 +14,7 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "uploads",
       publicFolder: "public",
     },
   },
@@ -79,7 +79,20 @@ export default defineConfig({
             label: "Body",
             isBody: true,
           },
-
+          {
+            type: 'image',
+            label: 'cover',
+            name: 'cover',
+          },
+          {
+            type: "string",
+            name: "category",
+            label: "category",
+            list: true,
+            ui: {
+              component: 'category',
+            }
+          },
         ],
       },
     ],
