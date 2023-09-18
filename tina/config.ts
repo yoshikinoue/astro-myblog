@@ -51,6 +51,12 @@ export default defineConfig({
             type: 'boolean',
             required: true,
             description: 'If this is checked the post will not be published',
+          },        
+          {
+            name: 'featured',
+            label: 'featured',
+            type: 'boolean',
+            description: 'featured',
           },
           {
             type: "string",
