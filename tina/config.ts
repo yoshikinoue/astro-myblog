@@ -90,15 +90,6 @@ export default defineConfig({
             label: 'cover',
             name: 'cover',
           },
-          {
-            type: "string",
-            name: "category",
-            label: "category",
-            list: true,
-            ui: {
-              component: 'category',
-            }
-          },
         ],
       },
     ],

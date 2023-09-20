@@ -3,7 +3,7 @@ title: Redshift COPY時のエラーを確認する
 pubDatetime: 2019-03-01
 cover: "/uploads/2.webp"
 postSlug: "2019-03-01-redshift-copy-error-sql"
-category: AWS
+category: "AWS"
 tags:
   - aws
   - redshift
