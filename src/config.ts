@@ -15,8 +15,8 @@ export const LOCALE = ["ja-JP"]; // set to [] to use the environment default
 export const LOGO_IMAGE = {
   enable: false,
   svg: true,
-  width: 216,
-  height: 46,
+  width: 0,
+  height: 0,
 };
 
 export const SOCIALS: SocialObjects = [
