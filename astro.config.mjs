@@ -42,4 +42,7 @@ export default defineConfig({
     },
   },
   prefetch: true,
+  experimental: {
+    contentCollectionCache: true,
+  },
 });

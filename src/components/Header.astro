@@ -3,8 +3,8 @@ import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
-//import logoPNG from "/assets/logo.png";
-//import logoSVG from "/assets/logo.svg";
+import logoPNG from "/public/assets/logo.png";
+import logoSVG from "/public/assets/logo.svg";
 
 export interface Props {
   activeNav?: "posts" | "tags" | "about" | "search";
@@ -150,7 +150,7 @@ const { activeNav } = Astro.props;
   }
   nav ul li:nth-child(4),
   nav ul li:nth-child(5) {
-    @apply col-span-1;
+    @apply col-span-2;
   }
   nav a.active {
     @apply underline decoration-wavy decoration-2 underline-offset-4;
