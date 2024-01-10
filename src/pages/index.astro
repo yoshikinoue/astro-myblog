@@ -83,6 +83,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
             ({ data }, index) =>
               index < 4 && (
                 <Card
+                  rel="prefetch"
                   href={`/posts/${slugify(data)}`}
                   frontmatter={data}
                   secHeading={false}

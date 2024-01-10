@@ -2,16 +2,23 @@ import Datetime from "./Datetime";
 import type { BlogFrontmatter } from "@content/_schemas";
 
 export interface Props {
+  rel?: string;
   href?: string;
   frontmatter: BlogFrontmatter;
   secHeading?: boolean;
 }
 
-export default function Card({ href, frontmatter, secHeading = true }: Props) {
+export default function Card({
+  rel,
+  href,
+  frontmatter,
+  secHeading = true,
+}: Props) {
   const { title, pubDatetime, description } = frontmatter;
   return (
     <li className="my-6">
       <a
+        rel={rel}
         href={href}
         className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
       >
