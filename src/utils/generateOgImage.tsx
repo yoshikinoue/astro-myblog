@@ -2,6 +2,7 @@ import satori, { SatoriOptions } from "satori";
 import { SITE } from "@config";
 import { writeFile } from "node:fs/promises";
 import { Resvg } from "@resvg/resvg-js";
+import { slugifyStr } from "@utils/slugify";
 
 const fetchFonts = async () => {
   // Regular Font
@@ -144,9 +145,11 @@ const generateOgImage = async (mytext = SITE.title) => {
     const pngData = resvg.render();
     const pngBuffer = pngData.asPng();
 
-    console.info("Output PNG Image  :", `${mytext}.png`);
+    const filename = slugifyStr(mytext);
 
-    await writeFile(`./dist/${mytext}.png`, pngBuffer);
+    console.info("Output PNG Image  :", `${filename}.png`);
+
+    await writeFile(`./dist/${filename}.png`, pngBuffer);
   }
 
   return svg;
