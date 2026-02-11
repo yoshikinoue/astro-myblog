@@ -50,6 +50,8 @@ TINA_SEARCH_TOKEN=your-search-token
 
 #### Cloudflare Pages へのデプロイ時
 Cloudflare Pages の設定画面（Settings > Environment variables）にて、同様の環境変数を設定してください。
+**Production (本番)** と **Preview (プレビュー)** 両方の環境に設定する必要があります。
+
 *   `TINA_CLIENT_ID`
 *   `TINA_TOKEN`
 *   `TINA_SEARCH_TOKEN`
