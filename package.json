@@ -2,8 +2,8 @@
   "name": "astro-myblog",
   "version": "2.3.0",
   "scripts": {
-    "dev": "tinacms dev -c 'astro dev'",
-    "start": "tinacms dev -c 'astro dev'",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "start": "tinacms dev -c \"astro dev\"",
     "build": "tinacms build && astro build && jampack ./dist && cp _redirects ./dist/_redirects",
     "preview": "astro preview",
     "sync": "astro sync",
