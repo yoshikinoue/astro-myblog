@@ -1,0 +1,4 @@
+## 2025-02-21 - Path Traversal in Build-Time Image Generation
+**Vulnerability:** A Path Traversal vulnerability was identified in `src/utils/generateOgImage.tsx`. The function used user-controlled input (`mytext`) directly in a file path (`writeFile('./dist/' + mytext + '.png')`) during the build process.
+**Learning:** Build scripts and static site generators often trust input data more than runtime applications, assuming sanitized content. However, when content comes from a CMS (like TinaCMS) without strict validation on slugs, malicious input (e.g., `../../evil`) can lead to arbitrary file writes or overwrites on the build server.
+**Prevention:** Always sanitize file paths derived from user input, even in build scripts. Use robust slugification libraries (like `github-slugger`) that strip path traversal characters before using variables in file system operations.
