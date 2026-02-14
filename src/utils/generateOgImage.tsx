@@ -1,20 +1,17 @@
-import satori, { SatoriOptions } from "satori";
+import satori, { type SatoriOptions } from "satori";
 import { SITE } from "@config";
 import { writeFile } from "node:fs/promises";
 import { Resvg } from "@resvg/resvg-js";
 
 const fetchFonts = async () => {
-  // Regular Font
-  const fontFileRegular = await fetch(
-    "https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf"
-  );
-  const fontRegular: ArrayBuffer = await fontFileRegular.arrayBuffer();
-
-  // Bold Font
-  const fontFileBold = await fetch(
-    "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
-  );
-  const fontBold: ArrayBuffer = await fontFileBold.arrayBuffer();
+  const [fontRegular, fontBold] = await Promise.all([
+    fetch("https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf").then((res) =>
+      res.arrayBuffer()
+    ),
+    fetch("https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf").then((res) =>
+      res.arrayBuffer()
+    ),
+  ]);
 
   return { fontRegular, fontBold };
 };
