@@ -30,6 +30,11 @@ export default function SearchBar({ searchList }: Props) {
     setInputVal(e.currentTarget.value);
   };
 
+  const clearSearch = () => {
+    setInputVal("");
+    inputRef.current?.focus();
+  };
+
   const fuse = useMemo(
     () =>
       new Fuse(searchList, {
@@ -84,7 +89,7 @@ export default function SearchBar({ searchList }: Props) {
         <input
           className="block w-full rounded border border-skin-fill 
         border-opacity-40 bg-skin-fill py-3 pl-10
-        pr-3 placeholder:italic placeholder:text-opacity-75 
+        pr-10 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
           placeholder="Search for anything..."
           type="text"
@@ -95,10 +100,35 @@ export default function SearchBar({ searchList }: Props) {
           autoFocus
           ref={inputRef}
         />
+        <span className="sr-only">Search</span>
+
+        {inputVal.length > 0 && (
+          <button
+            type="button"
+            className="absolute inset-y-0 right-0 flex items-center pr-3 text-skin-base opacity-75 hover:opacity-100 focus:outline-none"
+            onClick={clearSearch}
+            aria-label="Clear search"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        )}
       </label>
 
       {inputVal.length > 1 && (
-        <div className="mt-8">
+        <div className="mt-8" aria-live="polite">
           Found {searchResults?.length}
           {searchResults?.length && searchResults?.length === 1
             ? " result"
