@@ -2,15 +2,16 @@ import satori, { type SatoriOptions } from "satori";
 import { SITE } from "@config";
 import { writeFile } from "node:fs/promises";
 import { Resvg } from "@resvg/resvg-js";
+import { slugifyStr } from "@utils/slugify";
 
 const fetchFonts = async () => {
   const [fontRegular, fontBold] = await Promise.all([
-    fetch("https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf").then((res) =>
-      res.arrayBuffer()
-    ),
-    fetch("https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf").then((res) =>
-      res.arrayBuffer()
-    ),
+    fetch(
+      "https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf"
+    ).then(res => res.arrayBuffer()),
+    fetch(
+      "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
+    ).then(res => res.arrayBuffer()),
   ]);
 
   return { fontRegular, fontBold };
@@ -141,9 +142,9 @@ const generateOgImage = async (mytext = SITE.title) => {
     const pngData = resvg.render();
     const pngBuffer = pngData.asPng();
 
-    console.info("Output PNG Image  :", `${mytext}.png`);
+    console.info("Output PNG Image  :", `${slugifyStr(mytext)}.png`);
 
-    await writeFile(`./dist/${mytext}.png`, pngBuffer);
+    await writeFile(`./dist/${slugifyStr(mytext)}.png`, pngBuffer);
   }
 
   return svg;

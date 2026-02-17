@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import generateOgImage from "@utils/generateOgImage";
+import slugify from "@utils/slugify";
 import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async ({ params }) => {
@@ -13,6 +14,6 @@ export function getStaticPaths() {
   return posts
     .filter(({ data }) => !data.ogImage)
     .map(({ data }) => ({
-      params: { ogTitle: data.postSlug },
+      params: { ogTitle: slugify(data) },
     }));
 }
