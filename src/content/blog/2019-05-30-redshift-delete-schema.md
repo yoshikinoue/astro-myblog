@@ -21,7 +21,6 @@ tags:
 DROP SCHEMA hogehoge CASCADE
 ```
 
-
 ### 参考
 
 - [DROP SCHEMA - Amazon Redshift](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/r_DROP_SCHEMA.html)

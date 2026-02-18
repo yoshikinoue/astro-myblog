@@ -70,4 +70,3 @@ counter['aaa'] # aaa の個数を返す
 ## 参考
 
 - [collections --- コンテナデータ型 — Python 3.7.3 ドキュメント](https://docs.python.org/ja/3/library/collections.html#collections.Counter)
-

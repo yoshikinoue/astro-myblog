@@ -14,7 +14,6 @@ tags:
 
 Xiaomiの[miband3](https://amzn.to/2JhyjSA)をAndroidと連携して、歩数、心拍数を記録する方法
 
-
 ## Androidアプリ
 
 公式の Mi Fit というアプリは、心拍数をGoogleFitに同期してくれないので、サードパーティで[Miband3](https://amzn.to/2JhyjSA)に対応したアプリをインストールする必要がある。

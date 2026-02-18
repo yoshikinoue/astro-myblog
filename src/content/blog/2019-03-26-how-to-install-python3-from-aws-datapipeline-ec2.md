@@ -23,7 +23,6 @@ Datapipelineのデフォルト ami id
 ap-northeast-1: ami-00c97fba3644ea699
 ```
 
-
 AWSのドキュメントAmazon Linux AMI を確認して使用予定のリージョンに合わせたami idをメモ。
 下記jsonが、
 2019-03-26時点の、ap-northeast-1(AP東京)のami ami-06cd52961ce9f0d85 を指定してる例

@@ -8,12 +8,12 @@ import { slug as slugger } from "github-slugger";
 
 const fetchFonts = async () => {
   const [fontRegular, fontBold] = await Promise.all([
-    fetch("https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf").then((res) =>
-      res.arrayBuffer()
-    ),
-    fetch("https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf").then((res) =>
-      res.arrayBuffer()
-    ),
+    fetch(
+      "https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf"
+    ).then(res => res.arrayBuffer()),
+    fetch(
+      "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
+    ).then(res => res.arrayBuffer()),
   ]);
 
   return { fontRegular, fontBold };

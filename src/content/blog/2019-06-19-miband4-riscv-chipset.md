@@ -15,7 +15,6 @@ tags:
 Xiaomiの[miband4](https://s.click.aliexpress.com/e/cBgkS3Vq)がRISC-Vベースのチップ使ってるみたいで欲しくなってくる。
 米国の中国との関税や、Huaweiたたきで、ARMベースのチップから、RISC-Vの移行が加速するのかも
 
-
 ## 参考
 
 [Huami announces Huangshan No. 1, the world’s first AI-powered wearable chipset](https://www.gizmochina.com/2018/09/17/huami-huangshan-no-1-world-first-ai-powered-wearable-chipset/)
