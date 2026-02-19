@@ -30,6 +30,11 @@ export default function SearchBar({ searchList }: Props) {
     setInputVal(e.currentTarget.value);
   };
 
+  const clearInput = () => {
+    setInputVal("");
+    inputRef.current?.focus();
+  };
+
   const fuse = useMemo(
     () =>
       new Fuse(searchList, {
@@ -84,7 +89,7 @@ export default function SearchBar({ searchList }: Props) {
         <input
           className="block w-full rounded border border-skin-fill 
         border-opacity-40 bg-skin-fill py-3 pl-10
-        pr-3 placeholder:italic placeholder:text-opacity-75 
+        pr-10 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
           placeholder="Search for anything..."
           type="text"
@@ -94,11 +99,36 @@ export default function SearchBar({ searchList }: Props) {
           autoComplete="off"
           autoFocus
           ref={inputRef}
+          aria-label="Search"
         />
+
+        {inputVal.length > 0 && (
+          <button
+            className="absolute inset-y-0 right-0 mr-2 flex items-center p-1 text-skin-base opacity-75 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-skin-accent"
+            onClick={clearInput}
+            aria-label="Clear search"
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        )}
       </label>
 
       {inputVal.length > 1 && (
-        <div className="mt-8">
+        <div className="mt-8" aria-live="polite">
           Found {searchResults?.length}
           {searchResults?.length && searchResults?.length === 1
             ? " result"
