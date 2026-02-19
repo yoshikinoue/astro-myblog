@@ -13,7 +13,7 @@ featured: false
 
 ## 使用バージョン
 
-* "awscli": 1.16.70
+- "awscli": 1.16.70
 
 awscli の設定は出来てることが前提
 
@@ -21,7 +21,7 @@ awscli の設定は出来てることが前提
 
 df から始まる `pipeline-id` を指定する。
 
-* command line
+- command line
 
 ```bash
 aws datapipeline get-pipeline-definition --pipeline-id df-hogehoge0123456 > hoge.json
@@ -54,5 +54,5 @@ aws datapipeline put-pipeline-definition --pipeline-id "df-hoge0123456" --pipeli
 
 ## 参考
 
-* [AWS Data Pipeline の 稀によくあるQ\&A | ALBERT Official Blog
+- [AWS Data Pipeline の 稀によくあるQ\&A | ALBERT Official Blog
   blog.albert2005.co.jp](https://blog.albert2005.co.jp/2016/12/26/aws-data-pipeline-%E3%81%AE-%E7%A8%80%E3%81%AB%E3%82%88%E3%81%8F%E3%81%82%E3%82%8Bqa/)

@@ -12,7 +12,7 @@ tags:
 
 - mac の homebrew で postgresql pl/Python を使いたい。
 - homebrew の --with-python オプションはなくなってる。
-[Remove all options from Homebrew/homebrew-core formulae](https://github.com/Homebrew/homebrew-core/issues/31510)
+  [Remove all options from Homebrew/homebrew-core formulae](https://github.com/Homebrew/homebrew-core/issues/31510)
 
 ### 対応
 

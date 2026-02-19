@@ -27,7 +27,6 @@ except: return False
 $$ LANGUAGE plpythonu;
 ```
 
-
 - 削除sql
 
 ```sql
