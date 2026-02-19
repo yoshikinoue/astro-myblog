@@ -12,26 +12,26 @@ tags:
 
 ## 概要
 
-Xiaomiの[miband3](https://amzn.to/2JhyjSA)をAndroidと連携して、歩数、心拍数を記録する方法
+Xiaomi の[miband3](https://amzn.to/2JhyjSA)を Android と連携して、歩数、心拍数を記録する方法
 
-## Androidアプリ
+## Android アプリ
 
-公式の Mi Fit というアプリは、心拍数をGoogleFitに同期してくれないので、サードパーティで[Miband3](https://amzn.to/2JhyjSA)に対応したアプリをインストールする必要がある。
+公式の Mi Fit というアプリは、心拍数を GoogleFit に同期してくれないので、サードパーティで[Miband3](https://amzn.to/2JhyjSA)に対応したアプリをインストールする必要がある。
 
 [Mi Fit](https://play.google.com/store/apps/details?id=com.xiaomi.hm.health)
 
 私が使ってるのは、Notify & Fitness for Mi Band というアプリでなかなか使い勝手が良い。
-GoogleFitと連携するにはアプリ内購入が必要。
+GoogleFit と連携するにはアプリ内購入が必要。
 
 [Notify & Fitness for Mi Band](https://play.google.com/store/apps/details?id=com.mc.miband1)
 
-Miband3は睡眠解析機能もあってこのアプリで何時間寝れたか、レム睡眠、ノンレム睡眠はどれくらいか、寝てる状態の心拍数の推移も表示できる。
-Bluetoothの体重計にもアプリが対応しているので体重計を買ったらこのアプリ経由で体重もGoogleFitに同期することができそうだ。
-スマホと連動する体重計は1万を超えるモデルもあるので、安い3000円くらいのを探してまたこのブログに書くつもり。
+Miband3 は睡眠解析機能もあってこのアプリで何時間寝れたか、レム睡眠、ノンレム睡眠はどれくらいか、寝てる状態の心拍数の推移も表示できる。
+Bluetooth の体重計にもアプリが対応しているので体重計を買ったらこのアプリ経由で体重も GoogleFit に同期することができそうだ。
+スマホと連動する体重計は 1 万を超えるモデルもあるので、安い 3000 円くらいのを探してまたこのブログに書くつもり。
 
-昔はライフハックとかいってなんでも感でもEvernoteとかに記録するのが流行ったが、
-今は歩数、心拍数、体重の推移はGoogleFitをデータベースとして利用すれば、日々の増減もグラフで見られるしGoogleアカウントがある限り見れなくなることはないだろう。
-GoogleがGoogleFitをサービス廃止にさえしなければ…。
+昔はライフハックとかいってなんでも感でも Evernote とかに記録するのが流行ったが、
+今は歩数、心拍数、体重の推移は GoogleFit をデータベースとして利用すれば、日々の増減もグラフで見られるし Google アカウントがある限り見れなくなることはないだろう。
+Google が GoogleFit をサービス廃止にさえしなければ…。
 
 [Xiaomi Mi band 3 小米(シャオミ) スマートブレスレット](https://amzn.to/2TRLleZ)
 

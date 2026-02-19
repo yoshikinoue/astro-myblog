@@ -41,7 +41,7 @@ aws datapipeline create-pipeline --name pipeline_test --unique-id hoge
 validationErrors などからの場合アップロードの成功
 
 `fileb://hoge.json` fileb://でマルチバイトでも文字化けしない
-WebのAWSコンソールからのアップロード、 `file://` だと日本語のコメントなどcommandやscriptにある場合、文字化けする。
+Web の AWS コンソールからのアップロード、 `file://` だと日本語のコメントなど command や script にある場合、文字化けする。
 
 ```bash
 aws datapipeline put-pipeline-definition --pipeline-id "df-hoge0123456" --pipeline-definition fileb://hoge.json
@@ -54,5 +54,5 @@ aws datapipeline put-pipeline-definition --pipeline-id "df-hoge0123456" --pipeli
 
 ## 参考
 
-- [AWS Data Pipeline の 稀によくあるQ\&A | ALBERT Official Blog
+- [AWS Data Pipeline の 稀によくある Q\&A | ALBERT Official Blog
   blog.albert2005.co.jp](https://blog.albert2005.co.jp/2016/12/26/aws-data-pipeline-%E3%81%AE-%E7%A8%80%E3%81%AB%E3%82%88%E3%81%8F%E3%81%82%E3%82%8Bqa/)

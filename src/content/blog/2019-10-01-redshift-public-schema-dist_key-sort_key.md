@@ -11,7 +11,7 @@ tags:
 
 ## 概要
 
-Redshift で schemaを新たにつくった場合、 `search_path` に含まれないので `PG_TABLE_DEF` でテーブル情報を参照しても出てこない。
+Redshift で schema を新たにつくった場合、 `search_path` に含まれないので `PG_TABLE_DEF` でテーブル情報を参照しても出てこない。
 `search_path` に設定すれば、出てくるので `PG_TABLE_DEF` を見たい場合は設定しよう。
 
 ```

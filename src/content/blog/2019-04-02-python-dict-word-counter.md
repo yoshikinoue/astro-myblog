@@ -10,7 +10,7 @@ tags:
 
 ## 概要
 
-dict型データのあるキーの値の個数を数えたい。
+dict 型データのあるキーの値の個数を数えたい。
 collections モジュールの Counter を使うと簡単にできる。
 Counter の most_common を使えば多い順にも取得できるので便利。
 
