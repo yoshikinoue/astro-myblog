@@ -14,7 +14,7 @@ tags:
 
 ### 対応
 
-- 作成sql
+- 作成 sql
 
 ```sql
 CREATE FUNCTION f_hoge(tag_str VARCHAR, tag_number int)
@@ -27,7 +27,7 @@ except: return False
 $$ LANGUAGE plpythonu;
 ```
 
-- 削除sql
+- 削除 sql
 
 ```sql
 DROP FUNCTION f_hoge(tag_str VARCHAR, tag_number int)

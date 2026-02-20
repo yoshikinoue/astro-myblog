@@ -1,4 +1,5 @@
 import { defineConfig } from "tinacms";
+import { slug } from "github-slugger";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -35,9 +36,7 @@ export default defineConfig({
             // Example of using a custom slugify function
             slugify: (values) => {
               // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
-              return `${values?.postSlug
-                ?.toLowerCase()
-                .replace(/ /g, '-')}`
+              return slug(values?.postSlug || values?.title || "");
             },
           },
         },

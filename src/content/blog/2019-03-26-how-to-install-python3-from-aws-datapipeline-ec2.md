@@ -11,22 +11,22 @@ tags:
 
 ## 概要
 
-AWS DataPipelineのEC2リソースはデフォルトではamiが古いので `yum install python3` は動かない。
-ami id に新しいami idを指定すれば、yumでPython3をインストールすることが可能になる。
-(古いものでも工夫すればインストールすることは可能、ソースや拡張yumリポジトリなど)
+AWS DataPipeline の EC2 リソースはデフォルトでは ami が古いので `yum install python3` は動かない。
+ami id に新しい ami id を指定すれば、yum で Python3 をインストールすることが可能になる。
+(古いものでも工夫すればインストールすることは可能、ソースや拡張 yum リポジトリなど)
 
-## 使用するAMI
+## 使用する AMI
 
-Datapipelineのデフォルト ami id
+Datapipeline のデフォルト ami id
 
 ```
 ap-northeast-1: ami-00c97fba3644ea699
 ```
 
-AWSのドキュメントAmazon Linux AMI を確認して使用予定のリージョンに合わせたami idをメモ。
-下記jsonが、
-2019-03-26時点の、ap-northeast-1(AP東京)のami ami-06cd52961ce9f0d85 を指定してる例
-※HVM (SSD)EBS ベース64 ビット
+AWS のドキュメント Amazon Linux AMI を確認して使用予定のリージョンに合わせた ami id をメモ。
+下記 json が、
+2019-03-26 時点の、ap-northeast-1(AP 東京)の ami ami-06cd52961ce9f0d85 を指定してる例
+※HVM (SSD)EBS ベース 64 ビット
 
 - DataPipeline
 
@@ -45,7 +45,7 @@ AWSのドキュメントAmazon Linux AMI を確認して使用予定のリージ
 
 ### 注意点
 
-Datapipeline で使用できる ami は "HVM AMI 仮想化タイプ" なのでHVMではないものは使用しないようにしておく。
+Datapipeline で使用できる ami は "HVM AMI 仮想化タイプ" なので HVM ではないものは使用しないようにしておく。
 
 ## 参考
 

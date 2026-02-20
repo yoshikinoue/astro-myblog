@@ -10,7 +10,7 @@ tags:
 
 ## 概要
 
-SQL実行時のtimestampが必要なら `getdate()` もしくは `SYSDATE` で取得できます。
+SQL 実行時の timestamp が必要なら `getdate()` もしくは `SYSDATE` で取得できます。
 `getdate()` は秒まで `SYSDATE` はミリ秒単位の違いがあります。
 あとは、`TO_CHAR` や `CONVERT_TIMEZONE` などで加工して使うといいかも。
 

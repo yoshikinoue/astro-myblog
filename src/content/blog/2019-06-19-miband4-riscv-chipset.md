@@ -12,8 +12,8 @@ tags:
 
 ## 概要
 
-Xiaomiの[miband4](https://s.click.aliexpress.com/e/cBgkS3Vq)がRISC-Vベースのチップ使ってるみたいで欲しくなってくる。
-米国の中国との関税や、Huaweiたたきで、ARMベースのチップから、RISC-Vの移行が加速するのかも
+Xiaomi の[miband4](https://s.click.aliexpress.com/e/cBgkS3Vq)が RISC-V ベースのチップ使ってるみたいで欲しくなってくる。
+米国の中国との関税や、Huawei たたきで、ARM ベースのチップから、RISC-V の移行が加速するのかも
 
 ## 参考
 

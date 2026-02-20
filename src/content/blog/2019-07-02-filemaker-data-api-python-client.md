@@ -22,7 +22,7 @@ tags:
 pip install python-fmrest
 ```
 
-## APIアクセスして辞書型のデータ取得
+## API アクセスして辞書型のデータ取得
 
 ```python
     fms = fmrest.Server('https://hoge.filemaker-cloud.com',
@@ -38,7 +38,7 @@ pip install python-fmrest
 ```
 
 verify_ssl は証明書が無効なら `False` 設定しておく。
-あとは、ループ回すなりしてCSVに吐いたり、どこかにPOSTしたり、別のDBに突っ込んだりすればよい。
+あとは、ループ回すなりして CSV に吐いたり、どこかに POST したり、別の DB に突っ込んだりすればよい。
 
 ## 参考
 
