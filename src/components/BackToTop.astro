@@ -1,0 +1,54 @@
+---
+---
+<button
+  id="back-to-top"
+  aria-label="Back to Top"
+  class="focus-outline"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler" viewBox="0 0 24 24">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M12 5l0 14"></path>
+    <path d="M18 11l-6 -6"></path>
+    <path d="M6 11l6 -6"></path>
+  </svg>
+</button>
+
+<style>
+  #back-to-top {
+    @apply fixed bottom-8 right-8 z-50 p-2 rounded-full bg-skin-card/80 text-skin-base shadow-lg transition-all duration-300 hover:bg-skin-card hover:scale-110 focus:opacity-100 pointer-events-none;
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  #back-to-top.show {
+    opacity: 1;
+    transform: translateY(0);
+    @apply pointer-events-auto;
+  }
+</style>
+
+<script>
+  function createBackToTop() {
+    const button = document.getElementById("back-to-top");
+
+    const scrollFunction = () => {
+      if (
+        document.body.scrollTop > 300 ||
+        document.documentElement.scrollTop > 300
+      ) {
+        button?.classList.add("show");
+      } else {
+        button?.classList.remove("show");
+      }
+    };
+
+    const backToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    window.addEventListener("scroll", scrollFunction);
+    button?.addEventListener("click", backToTop);
+  }
+
+  createBackToTop();
+</script>
