@@ -2,9 +2,7 @@ import satori, { type SatoriOptions } from "satori";
 import { SITE } from "@config";
 import { writeFile } from "node:fs/promises";
 import { Resvg } from "@resvg/resvg-js";
-// Use github-slugger directly to avoid importing @utils/slugify
-// which imports astro:content types, potentially causing issues in build scripts
-import { slug as slugger } from "github-slugger";
+import { safeFilename } from "./safeFilename";
 
 const fetchFonts = async () => {
   const [fontRegular, fontBold] = await Promise.all([
@@ -143,11 +141,11 @@ const generateOgImage = async (mytext = SITE.title) => {
     const resvg = new Resvg(svg);
     const pngData = resvg.render();
     const pngBuffer = pngData.asPng();
-    const sanitizedFilename = slugger(mytext);
+    const filename = safeFilename(mytext);
 
-    console.info("Output PNG Image  :", `${sanitizedFilename}.png`);
+    console.info("Output PNG Image  :", `${filename}.png`);
 
-    await writeFile(`./dist/${sanitizedFilename}.png`, pngBuffer);
+    await writeFile(`./dist/${filename}.png`, pngBuffer);
   }
 
   return svg;
