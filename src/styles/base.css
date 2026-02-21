@@ -93,6 +93,7 @@
   /* ===== scrollbar ===== */
   html {
     overflow-y: scroll;
+    scroll-behavior: smooth;
   }
 
   /* width */

@@ -1,6 +1,7 @@
 ---
 import { SITE } from "@config";
 import "@styles/base.css";
+import BackToTop from "@components/BackToTop.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -79,5 +80,6 @@ const socialImageURL = new URL(
   </head>
   <body>
     <slot />
+    <BackToTop />
   </body>
 </html>
