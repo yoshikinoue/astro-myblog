@@ -7,3 +7,6 @@
 ## 2026-02-18 - Ambiguous Theme Toggle Labels
 **Learning:** The theme toggle button relied on the current theme value (e.g., "dark") as its accessible label, which is confusing for screen reader users as it doesn't clearly indicate the action (switch to light mode) or the state.
 **Action:** Use explicit action-oriented labels like "Switch to dark mode" or "Switch to light mode" for toggle buttons, rather than just the state name.
+## 2026-02-18 - Missing aria-current on active navigation links
+**Learning:** The navigation menu used visual cues (underline) to indicate the active page but lacked the `aria-current="page"` attribute, making it difficult for screen reader users to know their current location within the navigation.
+**Action:** Always add `aria-current="page"` to the link representing the current page in a navigation menu.
