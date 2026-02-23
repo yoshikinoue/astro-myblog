@@ -12,3 +12,8 @@
 **Vulnerability:** Implicit reliance on `github-slugger` for file system safety in `src/utils/generateOgImage.tsx`. While currently safe, library behavior changes could introduce path traversal risks.
 **Learning:** URL sanitization libraries are not always sufficient for file system safety. Explicitly removing directory separators and traversal sequences (`..`, `/`, `\`) provides a necessary second layer of defense.
 **Prevention:** Implement a `safeFilename` utility that wraps slugification with strict character whitelisting or blacklist removal for file writing operations.
+
+## 2025-05-24 - Content Security Policy in SSG
+**Vulnerability:** Missing Content Security Policy (CSP) headers in `src/layouts/Layout.astro`.
+**Learning:** Static Site Generators (SSG) like Astro do not automatically include CSP headers, leaving the site vulnerable to XSS if scripts or styles are injected.
+**Prevention:** Explicitly add a `<meta http-equiv="Content-Security-Policy" ...>` tag in the global layout component (`src/layouts/Layout.astro`) to restrict resource loading.

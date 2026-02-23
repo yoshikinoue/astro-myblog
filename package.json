@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
+    "verify:csp": "npx tsx scripts/verify-csp.ts",
     "test": "npx tsx tests/filename-sanitization.test.ts",
     "format:check": "prettier --plugin-search-dir=. --check .",
     "format": "prettier --plugin-search-dir=. --write .",
