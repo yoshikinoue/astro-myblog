@@ -7,3 +7,6 @@
 ## 2026-02-18 - Ambiguous Theme Toggle Labels
 **Learning:** The theme toggle button relied on the current theme value (e.g., "dark") as its accessible label, which is confusing for screen reader users as it doesn't clearly indicate the action (switch to light mode) or the state.
 **Action:** Use explicit action-oriented labels like "Switch to dark mode" or "Switch to light mode" for toggle buttons, rather than just the state name.
+## 2026-02-18 - Decorative Text Separators
+**Learning:** Decorative text separators (like pipes `|`) in footers or lists are often announced by screen readers, creating noise. The project handled this correctly in `Datetime.tsx` but missed it in `Footer.astro`.
+**Action:** Use `aria-hidden="true"` on decorative text elements to hide them from assistive technology while keeping them visible.
