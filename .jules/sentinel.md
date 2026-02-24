@@ -12,3 +12,8 @@
 **Vulnerability:** Implicit reliance on `github-slugger` for file system safety in `src/utils/generateOgImage.tsx`. While currently safe, library behavior changes could introduce path traversal risks.
 **Learning:** URL sanitization libraries are not always sufficient for file system safety. Explicitly removing directory separators and traversal sequences (`..`, `/`, `\`) provides a necessary second layer of defense.
 **Prevention:** Implement a `safeFilename` utility that wraps slugification with strict character whitelisting or blacklist removal for file writing operations.
+
+## 2025-05-24 - Content Security Policy in Astro SSG
+**Vulnerability:** Missing CSP meta tag allowed XSS risks.
+**Learning:** Astro's `is:inline` scripts and bundled hydration scripts necessitate `script-src 'unsafe-inline'` unless a nonce/hash system is implemented, which is non-trivial for SSG.
+**Prevention:** Implement CSP with `'unsafe-inline'` as a baseline, and consider nonce-based hashes if migrating to SSR or if Astro supports it better in future.
