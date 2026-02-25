@@ -12,3 +12,8 @@
 **Vulnerability:** Implicit reliance on `github-slugger` for file system safety in `src/utils/generateOgImage.tsx`. While currently safe, library behavior changes could introduce path traversal risks.
 **Learning:** URL sanitization libraries are not always sufficient for file system safety. Explicitly removing directory separators and traversal sequences (`..`, `/`, `\`) provides a necessary second layer of defense.
 **Prevention:** Implement a `safeFilename` utility that wraps slugification with strict character whitelisting or blacklist removal for file writing operations.
+
+## 2025-05-25 - Missing Security Headers and Astro Hydration
+**Vulnerability:** Absence of security headers (CSP, HSTS, X-Frame-Options) exposed the site to XSS, Clickjacking, and MIME sniffing.
+**Learning:** Astro's client-side hydration generates inline scripts, necessitating `script-src 'unsafe-inline'` in CSP unless a complex hashing mechanism is implemented.
+**Prevention:** Implement strict security headers via `public/_headers` (for Cloudflare Pages) with careful scoping for `/admin` and `unsafe-inline` allowances for Astro.
