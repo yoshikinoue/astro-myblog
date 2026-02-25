@@ -59,12 +59,20 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="display-none sm:flex">
           <li>
-            <a href="/posts" class={activeNav === "posts" ? "active" : ""}>
+            <a
+              href="/posts"
+              class={activeNav === "posts" ? "active" : ""}
+              aria-current={activeNav === "posts" ? "page" : undefined}
+            >
               Posts
             </a>
           </li>
           <li>
-            <a href="/tags" class={activeNav === "tags" ? "active" : ""}>
+            <a
+              href="/tags"
+              class={activeNav === "tags" ? "active" : ""}
+              aria-current={activeNav === "tags" ? "page" : undefined}
+            >
               Tags
             </a>
           </li>
@@ -76,6 +84,7 @@ const { activeNav } = Astro.props;
               }`}
               ariaLabel="Search"
               title="Search"
+              ariaCurrent={activeNav === "search" ? "page" : undefined}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

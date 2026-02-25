@@ -1,0 +1,10 @@
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET /toggle-theme.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET /_astro/page.BG5lM7_G.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET /_astro/about.EtJS1gLm.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET /_astro/about.Db2C19n2.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET /posts/ HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET /search/ HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET /_astro/Search.DVbmNRoM.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:38] "GET /_astro/client.BizJlPPf.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Feb/2026 14:32:39] "GET /_astro/index.CVf8TyFT.js HTTP/1.1" 200 -
