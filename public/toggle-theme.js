@@ -32,6 +32,12 @@ function reflectPreference() {
       "aria-label",
       themeValue === "dark" ? "Switch to light mode" : "Switch to dark mode"
     );
+  document
+    .querySelector("#theme-btn")
+    ?.setAttribute(
+      "title",
+      themeValue === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
 }
 
 // set early so no page flashes / CSS is made aware
