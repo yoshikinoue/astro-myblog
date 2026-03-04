@@ -143,8 +143,6 @@ const generateOgImage = async (mytext = SITE.title) => {
     const pngBuffer = pngData.asPng();
     const filename = safeFilename(mytext);
 
-    console.info("Output PNG Image  :", `${filename}.png`);
-
     await writeFile(`./dist/${filename}.png`, pngBuffer);
   }
 
