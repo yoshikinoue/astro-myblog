@@ -4,6 +4,7 @@
   id="back-to-top"
   aria-label="Back to Top"
   class="focus-outline"
+  tabindex="-1"
 >
   <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler" viewBox="0 0 24 24" aria-hidden="true">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -37,8 +38,10 @@
         document.documentElement.scrollTop > 300
       ) {
         button?.classList.add("show");
+        button?.setAttribute("tabindex", "0");
       } else {
         button?.classList.remove("show");
+        button?.setAttribute("tabindex", "-1");
       }
     };
 
