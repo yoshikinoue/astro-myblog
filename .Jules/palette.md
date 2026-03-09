@@ -13,3 +13,6 @@
 ## 2026-02-18 - Missing aria-hidden on purely decorative elements
 **Learning:** Purely decorative elements like SVG icons inside buttons that already have `aria-label`s, or decorative text separators like `|`, can cause redundant or confusing announcements for screen reader users if they are not hidden from the accessibility tree.
 **Action:** Always add `aria-hidden="true"` to purely decorative SVGs inside links or buttons that already have an explicit `aria-label`, and to purely decorative text characters used for visual separation.
+## 2026-02-18 - Invisible UI elements receiving keyboard focus
+**Learning:** Hiding interactive elements visually (e.g., using `opacity: 0` and `pointer-events: none`) does not remove them from the accessibility tree or keyboard tab order, leading to "invisible" focus stops that confuse screen reader and keyboard users.
+**Action:** When conditionally hiding UI elements visually using opacity and transforms, dynamically manage their keyboard focusability by toggling `tabindex` between `"-1"` (hidden) and `"0"` (visible), or explicitly use `visibility: hidden` or `disabled` attributes.
