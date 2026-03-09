@@ -35,6 +35,7 @@ const { activeNav } = Astro.props;
         <button
           class="hamburger-menu focus-outline"
           aria-label="Open Menu"
+          title="Open Menu"
           aria-expanded="false"
           aria-controls="menu-items"
           aria-haspopup="menu"
@@ -210,6 +211,10 @@ const { activeNav } = Astro.props;
     menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
     menuBtn.setAttribute(
       "aria-label",
+      menuExpanded ? "Open Menu" : "Close Menu"
+    );
+    menuBtn.setAttribute(
+      "title",
       menuExpanded ? "Open Menu" : "Close Menu"
     );
     menuItems?.classList.toggle("display-none");
