@@ -107,6 +107,7 @@ export default function SearchBar({ searchList }: Props) {
             className="focus:ring-skin-accent absolute inset-y-0 right-0 mr-2 flex items-center p-1 text-skin-base opacity-75 hover:opacity-100 focus:outline-none focus:ring-2"
             onClick={clearInput}
             aria-label="Clear search"
+            title="Clear search"
             type="button"
           >
             <svg
