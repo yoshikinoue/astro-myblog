@@ -36,7 +36,10 @@ export default defineConfig({
             // Example of using a custom slugify function
             slugify: (values) => {
               // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
-              return slug(values?.postSlug || values?.title || "");
+              // Explicitly remove path traversal characters as a defense in depth measure
+              return slug(values?.postSlug || values?.title || "")
+                .replace(/[\/\\]/g, "")
+                .replace(/\.\./g, "");
             },
           },
         },
