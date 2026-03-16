@@ -19,3 +19,6 @@
 ## 2026-02-18 - LinkButton lacked visible keyboard focus styles
 **Learning:** The core `LinkButton.astro` component only changed color on hover, leaving keyboard users without a clear, visible focus indicator when tabbing through interactive elements, relying entirely on browser defaults which are often insufficient or inconsistent.
 **Action:** Always explicitly define focus styles for interactive elements, particularly links and buttons. Adding `focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill` provides a robust, accessible focus ring that integrates well with the Tailwind design system.
+## 2026-02-18 - Missing interactive styles on 'Go back' button
+**Learning:** The 'Go back' button on the Post Details page only had an opacity hover effect but missed interactive color feedback (like turning text/SVG to accent color on hover), which is inconsistent with the rest of the application's links/buttons that utilize `hover:text-skin-accent`.
+**Action:** Consistently apply `group`, `hover:text-skin-accent` (or similar interactive states) on interactive buttons to ensure strong visual feedback on hover/focus.
