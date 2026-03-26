@@ -19,3 +19,6 @@
 ## 2026-02-18 - LinkButton lacked visible keyboard focus styles
 **Learning:** The core `LinkButton.astro` component only changed color on hover, leaving keyboard users without a clear, visible focus indicator when tabbing through interactive elements, relying entirely on browser defaults which are often insufficient or inconsistent.
 **Action:** Always explicitly define focus styles for interactive elements, particularly links and buttons. Adding `focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill` provides a robust, accessible focus ring that integrates well with the Tailwind design system.
+## 2026-02-18 - Missing title attribute on icon-only Back to Top button
+**Learning:** While the Back to Top button had an aria-label for screen readers, it lacked a title attribute, leaving sighted mouse users without a native tooltip to explain the icon's function on hover.
+**Action:** Always pair aria-label with a matching title attribute on icon-only buttons to ensure both assistive technology users and sighted mouse users receive descriptive text.
