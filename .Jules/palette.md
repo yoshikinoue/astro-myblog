@@ -19,3 +19,6 @@
 ## 2026-02-18 - LinkButton lacked visible keyboard focus styles
 **Learning:** The core `LinkButton.astro` component only changed color on hover, leaving keyboard users without a clear, visible focus indicator when tabbing through interactive elements, relying entirely on browser defaults which are often insufficient or inconsistent.
 **Action:** Always explicitly define focus styles for interactive elements, particularly links and buttons. Adding `focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill` provides a robust, accessible focus ring that integrates well with the Tailwind design system.
+## 2026-02-18 - Fix HTML lang attribute to use ISO 639-1 code
+**Learning:** Screen readers rely on the `lang` attribute to determine pronunciation rules. Using a country code (`jp`) instead of the correct ISO 639-1 language code (`ja` for Japanese) can cause screen readers to fail to apply the correct pronunciation, severely impacting accessibility.
+**Action:** Always verify that `lang` attributes on the `<html>` element use standard ISO 639-1 language codes, not country codes.
