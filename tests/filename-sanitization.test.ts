@@ -1,6 +1,6 @@
 
 import { slug } from "github-slugger";
-import { safeFilename } from "../src/utils/safeFilename";
+import { safeFilename } from "../src/utils/safeFilename.ts";
 
 console.log("Running filename sanitization tests...");
 
@@ -14,6 +14,8 @@ const unsafeStrings = [
   "javascript:alert(1)",
   "../../../../etc/passwd",
   "user input with / and ..",
+  "....//",
+  ".\\./\\.\\.//",
 ];
 
 let passed = true;
