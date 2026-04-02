@@ -14,6 +14,9 @@ const unsafeStrings = [
   "javascript:alert(1)",
   "../../../../etc/passwd",
   "user input with / and ..",
+  "....//",
+  ".///..//",
+  "..././",
 ];
 
 let passed = true;

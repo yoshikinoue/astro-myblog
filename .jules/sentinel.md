@@ -17,3 +17,8 @@
 **Vulnerability:** Lack of Content Security Policy (CSP) allowed potentially malicious scripts or styles to execute if XSS vulnerabilities were present.
 **Learning:** Static sites often lack HTTP headers for security. A `<meta>` tag is a viable alternative for CSP in these environments.
 **Prevention:** Implement a strict CSP meta tag in the main layout (`src/layouts/Layout.astro`) to mitigate XSS risks, even for SSG sites.
+
+## 2025-05-26 - Recursive Path Traversal Sanitization
+**Vulnerability:** Non-recursive regex replacement in `safeFilename` left the application vulnerable to nested traversal sequences (e.g., `....//`) that reform after a single pass.
+**Learning:** Simple string replacement is ineffective against path traversal if nested patterns can collapse into valid directory modifiers.
+**Prevention:** Use a `do...while` loop to recursively strip dangerous sequences until the string state stabilizes.
