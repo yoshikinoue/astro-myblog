@@ -17,3 +17,8 @@
 **Vulnerability:** Lack of Content Security Policy (CSP) allowed potentially malicious scripts or styles to execute if XSS vulnerabilities were present.
 **Learning:** Static sites often lack HTTP headers for security. A `<meta>` tag is a viable alternative for CSP in these environments.
 **Prevention:** Implement a strict CSP meta tag in the main layout (`src/layouts/Layout.astro`) to mitigate XSS risks, even for SSG sites.
+
+## 2024-05-24 - [Remove HTML Injection Vector from Socials Component]
+**Vulnerability:** The `src/components/Socials.astro` component uses `<Fragment set:html={socialIcons[social.name]} />` to dynamically render SVG social icons. Rendering raw HTML directly using `set:html` is a structural security vulnerability leading to potential XSS/HTML injection, even if the current source (`src/assets/socialIcons.ts`) is trusted.
+**Learning:** `set:html` should be avoided when constructing templates to mitigate the risk of untrusted content being rendered directly as DOM nodes. In dynamic scenarios, mapping specific keys to safe, static components is far safer.
+**Prevention:** Avoid `set:html` entirely unless absolutely necessary (e.g. rendering a safe, previously-sanitized Markdown output). For SVGs, construct an intermediate wrapper component that directly renders the safe, raw template syntax, mapping names to standard static HTML elements.
