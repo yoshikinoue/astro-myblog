@@ -18,7 +18,7 @@ export default defineConfig({
       },
     }),
     react(),
-    sitemap(),
+    sitemap({ customPages: [] }),
   ],
   markdown: {
     remarkPlugins: [
