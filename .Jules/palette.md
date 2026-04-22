@@ -19,3 +19,6 @@
 ## 2026-02-18 - LinkButton lacked visible keyboard focus styles
 **Learning:** The core `LinkButton.astro` component only changed color on hover, leaving keyboard users without a clear, visible focus indicator when tabbing through interactive elements, relying entirely on browser defaults which are often insufficient or inconsistent.
 **Action:** Always explicitly define focus styles for interactive elements, particularly links and buttons. Adding `focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill` provides a robust, accessible focus ring that integrates well with the Tailwind design system.
+## 2026-02-18 - Tooltips on disabled buttons require pointer events
+**Learning:** Using `pointer-events: none` on disabled links hides tooltips and the "not-allowed" cursor, reducing user feedback.
+**Action:** The accessible pattern is `cursor-not-allowed` combined with `href={undefined}` to prevent clickability while preserving state communication via tooltips.
