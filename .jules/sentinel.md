@@ -17,3 +17,7 @@
 **Vulnerability:** Lack of Content Security Policy (CSP) allowed potentially malicious scripts or styles to execute if XSS vulnerabilities were present.
 **Learning:** Static sites often lack HTTP headers for security. A `<meta>` tag is a viable alternative for CSP in these environments.
 **Prevention:** Implement a strict CSP meta tag in the main layout (`src/layouts/Layout.astro`) to mitigate XSS risks, even for SSG sites.
+## $(date +%Y-%m-%d) - [Structural Security] Avoid set:html for trusted dictionaries
+**Vulnerability:** Rendering raw HTML from strings using set:html based on dynamic keys (e.g., socialIcons[social.name]) presents a structural XSS risk if the dictionary is later modified or populated dynamically.
+**Learning:** Even if the current dictionary is trusted and static, the use of set:html is an anti-pattern when it can be replaced by static template elements, which are inherently secure.
+**Prevention:** Use dedicated Astro components returning static template elements (e.g., SocialIcon.astro) to eliminate HTML injection risks entirely.
