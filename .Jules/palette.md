@@ -19,3 +19,6 @@
 ## 2026-02-18 - LinkButton lacked visible keyboard focus styles
 **Learning:** The core `LinkButton.astro` component only changed color on hover, leaving keyboard users without a clear, visible focus indicator when tabbing through interactive elements, relying entirely on browser defaults which are often insufficient or inconsistent.
 **Action:** Always explicitly define focus styles for interactive elements, particularly links and buttons. Adding `focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill` provides a robust, accessible focus ring that integrates well with the Tailwind design system.
+## 2025-02-23 - Accessibility of disabled pagination buttons
+**Learning:** Using `pointer-events: none` on disabled pagination buttons prevents tooltip text (via the `title` attribute) from appearing on hover, making it unclear to users why a button is disabled. In addition, an anchor tag with an `href="#"` but no pointer events provides a confusing semantic structure.
+**Action:** Use `cursor-not-allowed` instead of `pointer-events: none` to show clear UI feedback on hover, and omit the `href` attribute entirely (`href={undefined}`) to remove its active anchor status in Astro. Ensure context-rich tooltips (`title` attributes) explain the disabled boundary.
