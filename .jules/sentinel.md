@@ -17,3 +17,8 @@
 **Vulnerability:** Lack of Content Security Policy (CSP) allowed potentially malicious scripts or styles to execute if XSS vulnerabilities were present.
 **Learning:** Static sites often lack HTTP headers for security. A `<meta>` tag is a viable alternative for CSP in these environments.
 **Prevention:** Implement a strict CSP meta tag in the main layout (`src/layouts/Layout.astro`) to mitigate XSS risks, even for SSG sites.
+
+## 2025-05-26 - Structural XSS in Static Dictionaries
+**Vulnerability:** Rendering dictionary values as raw HTML using `set:html` based on component props (`socialIcons[social.name]`).
+**Learning:** Even if a dictionary is currently trusted and static (like `src/assets/socialIcons.ts`), rendering its values dynamically with `set:html` introduces a structural XSS vulnerability. If the data source ever changes or is poisoned, it leads directly to arbitrary code execution.
+**Prevention:** Avoid `set:html` (or `dangerouslySetInnerHTML`) whenever possible. For SVG icons, use component-based conditional rendering (e.g., `<SocialIcon name={...} />`) to parse the markup as safe, static template elements during the build phase.
