@@ -17,3 +17,8 @@
 **Vulnerability:** Lack of Content Security Policy (CSP) allowed potentially malicious scripts or styles to execute if XSS vulnerabilities were present.
 **Learning:** Static sites often lack HTTP headers for security. A `<meta>` tag is a viable alternative for CSP in these environments.
 **Prevention:** Implement a strict CSP meta tag in the main layout (`src/layouts/Layout.astro`) to mitigate XSS risks, even for SSG sites.
+
+## 2025-05-26 - XSS Risk in Socials Component
+**Vulnerability:** Structural vulnerability: using Astro's `set:html` with dynamic keys (`socialIcons[social.name]`) to render SVGs.
+**Learning:** Even if the input dictionary is static and trusted, `set:html` is an insecure pattern and a potential vector for Cross-Site Scripting (XSS) if data sources change.
+**Prevention:** Always use native template components (e.g., passing props to a dedicated `<SocialIcon />` component) to conditionally render SVGs instead of dynamically inserting raw HTML strings.
