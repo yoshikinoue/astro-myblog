@@ -19,11 +19,11 @@ const {
 ---
 
 <a
-  href={disabled ? "#" : href}
+  href={disabled ? undefined : href}
   tabindex={disabled ? "-1" : "0"}
   class={`group inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill ${className}`}
   aria-label={ariaLabel}
-  title={title}
+  title={disabled ? "This link is disabled" : title}
   aria-disabled={disabled}
   aria-current={ariaCurrent}
 >
