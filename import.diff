@@ -1,0 +1,9 @@
+<<<<<<< SEARCH
+import { SOCIALS } from "@config";
+import LinkButton from "./LinkButton.astro";
+import socialIcons from "@assets/socialIcons";
+=======
+import { SOCIALS } from "@config";
+import LinkButton from "./LinkButton.astro";
+import SocialIcon from "./SocialIcon.astro";
+>>>>>>> REPLACE
