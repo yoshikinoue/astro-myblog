@@ -19,3 +19,9 @@
 ## 2026-02-18 - LinkButton lacked visible keyboard focus styles
 **Learning:** The core `LinkButton.astro` component only changed color on hover, leaving keyboard users without a clear, visible focus indicator when tabbing through interactive elements, relying entirely on browser defaults which are often insufficient or inconsistent.
 **Action:** Always explicitly define focus styles for interactive elements, particularly links and buttons. Adding `focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:outline-none focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill` provides a robust, accessible focus ring that integrates well with the Tailwind design system.
+## 2026-02-18 - Better visual feedback for disabled links
+**Learning:** Using `pointer-events: none` to disable links prevents users from receiving any visual feedback on hover, such as cursor changes or tooltips, which diminishes the UX.
+**Action:** Use `cursor-not-allowed` instead of `pointer-events: none` for disabled links, and simultaneously remove the `href` attribute (e.g., `href={undefined}`) to ensure the link remains unclickable and keyboard-inaccessible without sacrificing visual feedback on mouse hover.
+## 2026-02-18 - Missing aria-disabled attribute on disabled links
+**Learning:** Removing the `href` attribute and using `cursor-not-allowed` prevents navigation and changes the cursor visually, but does not explicitly convey the disabled state to assistive technologies like screen readers. The `LinkButton` component already accepts a `disabled` prop and forwards it to `aria-disabled`, but it's important to recognize that omitting `href` effectively turns the `<a>` element into a placeholder link, changing its implicit role.
+**Action:** When creating disabled links by removing the `href` attribute, ensure that `aria-disabled="true"` is also applied so that assistive technologies are aware of the element's disabled state, despite the change in its role.
