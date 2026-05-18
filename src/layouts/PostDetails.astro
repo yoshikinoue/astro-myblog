@@ -27,8 +27,8 @@ const ogUrl = new URL(
   <Header />
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
+      id="go-back-btn"
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
-      onclick="history.back()"
     >
       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
         ><path
@@ -50,6 +50,15 @@ const ogUrl = new URL(
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const goBackBtn = document.getElementById("go-back-btn");
+  if (goBackBtn) {
+    goBackBtn.addEventListener("click", () => {
+      history.back();
+    });
+  }
+</script>
 
 <style>
   main {
