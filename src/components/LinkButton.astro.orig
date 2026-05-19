@@ -21,7 +21,7 @@ const {
 <a
   href={disabled ? undefined : href}
   tabindex={disabled ? "-1" : "0"}
-  class={`group inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill ${disabled ? "!cursor-not-allowed pointer-events-auto" : ""} ${className}`}
+  class={`group inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent focus-visible:ring-offset-2 focus-visible:ring-offset-skin-fill ${disabled ? "pointer-events-auto" : ""} ${className}`}
   aria-label={ariaLabel}
   title={title}
   aria-disabled={disabled}
