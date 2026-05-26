@@ -40,6 +40,7 @@ const next = pageNum < totalPages ? "" : "disabled";
           disabled={prev === "disabled"}
           href={`/posts${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
           className={`mr-4 select-none ${prev}`}
+          title={prev === "disabled" ? "No previous pages" : "Go to previous page"}
           ariaLabel="Previous"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class={`${prev}-svg`} aria-hidden="true">
@@ -51,6 +52,7 @@ const next = pageNum < totalPages ? "" : "disabled";
           disabled={next === "disabled"}
           href={`/posts/${pageNum + 1}`}
           className={`ml-4 select-none ${next}`}
+          title={next === "disabled" ? "No more pages" : "Go to next page"}
           ariaLabel="Next"
         >
           Next
@@ -69,7 +71,7 @@ const next = pageNum < totalPages ? "" : "disabled";
     @apply mb-8 mt-auto flex justify-center;
   }
   .disabled {
-    @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
+    @apply select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base cursor-not-allowed;
   }
   .disabled-svg {
     @apply group-hover:!fill-skin-base;
