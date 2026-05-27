@@ -17,3 +17,11 @@
 **Vulnerability:** Lack of Content Security Policy (CSP) allowed potentially malicious scripts or styles to execute if XSS vulnerabilities were present.
 **Learning:** Static sites often lack HTTP headers for security. A `<meta>` tag is a viable alternative for CSP in these environments.
 **Prevention:** Implement a strict CSP meta tag in the main layout (`src/layouts/Layout.astro`) to mitigate XSS risks, even for SSG sites.
+## 2025-02-27 - Fix path traversal in TinaCMS slugify
+**Vulnerability:** The default custom `slugify` function in `tina/config.ts` using `github-slugger`'s `slug()` does not strip path traversal characters like slashes (`/`, `\`) or parent directory navigations (`..`). This could allow directory traversal when generating filenames.
+**Learning:** `github-slugger` does not automatically sanitize file paths, and relies on the user to provide a safe string. Relying solely on `github-slugger` for path safety is insufficient.
+**Prevention:** Explicitly remove slashes and parent directory navigations (`..`) from the slug string before passing it to the slugifier for file naming purposes.
+## 2025-02-27 - Fix build failure due to sitemap library breaking change
+**Vulnerability:** Upgrading the Astro sitemap library broke the build due to a change where `destinationDir` no longer accepted absolute paths without errors.
+**Learning:** External dependencies could change their parameter checking or introduce stricter type checks on configuration properties, which might silently fail or block the CI build.
+**Prevention:** Track dependency changes closely and explicitly update configuration parameters to conform to the most current library expectations when upgrading. In this case, updating `@astrojs/sitemap` to a higher patch version successfully bypasses the internal absolute path error.
