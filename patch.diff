@@ -1,0 +1,18 @@
+--- tina/config.ts
++++ tina/config.ts
+@@ -1,5 +1,5 @@
+ import { defineConfig } from "tinacms";
+-import { slug } from "github-slugger";
++import { safeFilename } from "../src/utils/safeFilename";
+
+ // Your hosting provider likely exposes this as an environment variable
+ const branch =
+@@ -36,7 +36,7 @@
+             // Example of using a custom slugify function
+             slugify: (values) => {
+               // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+-              return slug(values?.postSlug || values?.title || "");
++              return safeFilename(values?.postSlug || values?.title || "");
+             },
+           },
+         },
