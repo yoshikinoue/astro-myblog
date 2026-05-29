@@ -1,0 +1,7 @@
+--- src/components/LinkButton.astro
++++ src/components/LinkButton.astro
+@@ -20,3 +20,3 @@
+ <a
+-  href={disabled ? "#" : href}
++  href={disabled ? undefined : href}
+   tabindex={disabled ? "-1" : "0"}
