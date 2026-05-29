@@ -1,0 +1,15 @@
+--- src/layouts/Posts.astro
++++ src/layouts/Posts.astro
+@@ -43,2 +43,3 @@
+           className={`mr-4 select-none ${prev}`}
++          title={prev === "disabled" ? "No previous pages" : "Go to previous page"}
+           ariaLabel="Previous"
+@@ -54,2 +55,3 @@
+           className={`ml-4 select-none ${next}`}
++          title={next === "disabled" ? "No more pages" : "Go to next page"}
+           ariaLabel="Next"
+@@ -71,3 +73,3 @@
+   .disabled {
+-    @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
++    @apply cursor-not-allowed select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
+   }
