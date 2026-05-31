@@ -37,7 +37,7 @@ const next = pageNum < totalPages ? "" : "disabled";
     totalPages > 1 && (
       <nav class="pagination-wrapper" aria-label="Pagination">
         <LinkButton
-          disabled={prev === "disabled"}
+          disabled={prev === "disabled"} title={prev === "disabled" ? "No previous posts" : "Go to previous page"}
           href={`/posts${pageNum - 1 !== 1 ? "/" + (pageNum - 1) : ""}`}
           className={`mr-4 select-none ${prev}`}
           ariaLabel="Previous"
@@ -48,7 +48,7 @@ const next = pageNum < totalPages ? "" : "disabled";
           Prev
         </LinkButton>
         <LinkButton
-          disabled={next === "disabled"}
+          disabled={next === "disabled"} title={next === "disabled" ? "No more posts" : "Go to next page"}
           href={`/posts/${pageNum + 1}`}
           className={`ml-4 select-none ${next}`}
           ariaLabel="Next"
@@ -69,7 +69,7 @@ const next = pageNum < totalPages ? "" : "disabled";
     @apply mb-8 mt-auto flex justify-center;
   }
   .disabled {
-    @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
+    @apply cursor-not-allowed select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
   }
   .disabled-svg {
     @apply group-hover:!fill-skin-base;
