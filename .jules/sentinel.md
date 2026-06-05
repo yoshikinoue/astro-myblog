@@ -17,3 +17,7 @@
 **Vulnerability:** Lack of Content Security Policy (CSP) allowed potentially malicious scripts or styles to execute if XSS vulnerabilities were present.
 **Learning:** Static sites often lack HTTP headers for security. A `<meta>` tag is a viable alternative for CSP in these environments.
 **Prevention:** Implement a strict CSP meta tag in the main layout (`src/layouts/Layout.astro`) to mitigate XSS risks, even for SSG sites.
+## 2024-05-18 - Path Traversal Prevention in TinaCMS Config
+**Vulnerability:** Potential file system vulnerability through path traversal sequences (`/`, `\`, `..`) in the custom `slugify` function used for generating post filenames in `tina/config.ts`.
+**Learning:** Utilities like `github-slugger` might not sufficiently sanitize file path separators or traversal characters depending on the configuration and usage, especially when directly generating filenames from user input.
+**Prevention:** Implement defense-in-depth by explicitly stripping path traversal characters from inputs before passing them to the slugification utility.
