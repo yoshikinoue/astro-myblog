@@ -36,7 +36,9 @@ export default defineConfig({
             // Example of using a custom slugify function
             slugify: (values) => {
               // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
-              return slug(values?.postSlug || values?.title || "");
+              const str = values?.postSlug || values?.title || "";
+              const safeStr = str.replace(/[\\/]/g, "").replace(/\.\./g, "");
+              return slug(safeStr);
             },
           },
         },
