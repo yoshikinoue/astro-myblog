@@ -1,3 +1,3 @@
-## 2025-02-17 - Accessible Icon Buttons Pattern
-**Learning:** The `LinkButton` component supports `ariaLabel` prop but it's often omitted for icon-only buttons (like Socials), leading to accessibility issues. Passing `title` is insufficient for screen readers.
-**Action:** Always pass `ariaLabel` (or `aria-label`) to `LinkButton` when the button content is purely graphical (e.g. SVGs). Use the `linkTitle` or a descriptive string.
+## 2024-06-19 - Improve accessibility for disabled pagination links
+**Learning:** Using `pointer-events-none` on disabled links prevents them from showing a `cursor-not-allowed` indicator, which reduces UX clarity. Also, setting `href="#"` when disabled can cause issues with keyboard accessibility because they stay focusable.
+**Action:** Remove `href` entirely (`href={disabled ? undefined : href}`) for disabled states, keeping them non-interactive and un-focusable by default. Replace `pointer-events-none` with `cursor-not-allowed` to provide visual feedback on hover.
