@@ -17,3 +17,8 @@
 **Vulnerability:** Lack of Content Security Policy (CSP) allowed potentially malicious scripts or styles to execute if XSS vulnerabilities were present.
 **Learning:** Static sites often lack HTTP headers for security. A `<meta>` tag is a viable alternative for CSP in these environments.
 **Prevention:** Implement a strict CSP meta tag in the main layout (`src/layouts/Layout.astro`) to mitigate XSS risks, even for SSG sites.
+
+## 2024-05-27 - Content Security Policy Frame Source Missconfiguration
+**Vulnerability:** The Content-Security-Policy (CSP) `default-src 'self'` configuration was blocking intended functional third-party widgets (e.g. Amazon affiliate iframes) by implicitly restricting `frame-src`.
+**Learning:** Overly strict CSPs can inadvertently break critical site functionality if external integrations are not properly audited and allowlisted in their respective directives.
+**Prevention:** Maintain a precise inventory of all third-party scripts and iframes utilized across content files and explicitly add them to the relevant CSP directives (like `frame-src` or `script-src`) rather than loosening the overall policy.
