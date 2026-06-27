@@ -1,3 +1,6 @@
 ## 2025-02-17 - Accessible Icon Buttons Pattern
 **Learning:** The `LinkButton` component supports `ariaLabel` prop but it's often omitted for icon-only buttons (like Socials), leading to accessibility issues. Passing `title` is insufficient for screen readers.
 **Action:** Always pass `ariaLabel` (or `aria-label`) to `LinkButton` when the button content is purely graphical (e.g. SVGs). Use the `linkTitle` or a descriptive string.
+## 2024-05-18 - Improve Pagination Button UX and Accessibility
+**Learning:** In Astro, when styling disabled anchor (`<a>`) elements with `cursor-not-allowed` to support disabled visual states, the `pointer-events: none` style prevents hovering but does not prevent keyboard accessibility or tabbing to the element, and prevents tooltips. Removing `href` entirely is necessary to remove it from keyboard focus order and make it a standard disabled anchor.
+**Action:** When creating a disabled `LinkButton` component, change `href={disabled ? "#" : href}` to `href={disabled ? undefined : href}`. This removes the `href` attribute fully, which correctly prevents keyboard focus via Tab and ensures it behaves like a disabled link while supporting visual cursor styles.
