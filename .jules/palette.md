@@ -1,3 +1,3 @@
-## 2025-02-17 - Accessible Icon Buttons Pattern
-**Learning:** The `LinkButton` component supports `ariaLabel` prop but it's often omitted for icon-only buttons (like Socials), leading to accessibility issues. Passing `title` is insufficient for screen readers.
-**Action:** Always pass `ariaLabel` (or `aria-label`) to `LinkButton` when the button content is purely graphical (e.g. SVGs). Use the `linkTitle` or a descriptive string.
+## YYYY-MM-DD - Palette
+**Learning:** In Astro templates (like `src/layouts/Posts.astro` and `src/components/LinkButton.astro`), disabled buttons sometimes use `href="#"` and `pointer-events: none` which degrades accessibility and removes focus outlines on disabled elements, as screen readers still treat them as links and can confuse keyboard users. The correct pattern is removing `href` (`href={undefined}`) and replacing `pointer-events: none` with `cursor-not-allowed`.
+**Action:** Always check `pointer-events: none` and `href="#"` on disabled links in Astro, and update to standard patterns (`cursor-not-allowed` and no `href`). I also noticed `Search.tsx` missing context in its ARIA label, so updating the label or placeholder improves usability.
