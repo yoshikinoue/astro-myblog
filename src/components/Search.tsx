@@ -92,6 +92,7 @@ export default function SearchBar({ searchList }: Props) {
         pr-10 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
           placeholder="Search for anything..."
+          aria-label="Search posts"
           type="text"
           name="search"
           value={inputVal}
@@ -99,7 +100,6 @@ export default function SearchBar({ searchList }: Props) {
           autoComplete="off"
           autoFocus
           ref={inputRef}
-          aria-label="Search"
         />
 
         {inputVal.length > 0 && (
