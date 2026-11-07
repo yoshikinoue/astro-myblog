@@ -6,6 +6,7 @@ const socialIcons: SocialIcons = {
     class="icon-tabler"
     stroke-linecap="round"
     stroke-linejoin="round"
+    aria-hidden="true"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
     <path
@@ -17,6 +18,7 @@ const socialIcons: SocialIcons = {
     class="icon-tabler"
     stroke-linecap="round"
     stroke-linejoin="round"
+    aria-hidden="true"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
     <path
@@ -28,6 +30,7 @@ const socialIcons: SocialIcons = {
     class="icon-tabler"
     stroke-linecap="round"
     stroke-linejoin="round"
+    aria-hidden="true"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
     <rect x="4" y="4" width="16" height="16" rx="4"></rect>
@@ -39,6 +42,7 @@ const socialIcons: SocialIcons = {
     class="icon-tabler"
     stroke-linecap="round"
     stroke-linejoin="round"
+    aria-hidden="true"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
     <rect x="4" y="4" width="16" height="16" rx="2"></rect>
@@ -52,6 +56,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <rect x="3" y="5" width="18" height="14" rx="2"></rect>
@@ -62,6 +67,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
@@ -71,6 +77,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path>
     </svg>`,
@@ -79,6 +86,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
       <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
@@ -88,6 +96,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path>
@@ -98,6 +107,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M16.882 7.842a4.882 4.882 0 0 0 -9.764 0c0 4.273 -.213 6.409 -4.118 8.118c2 .882 2 .882 3 3c3 0 4 2 6 2s3 -2 6 -2c1 -2.118 1 -2.118 3 -3c-3.906 -1.709 -4.118 -3.845 -4.118 -8.118zm-13.882 8.119c4 -2.118 4 -4.118 1 -7.118m17 7.118c-4 -2.118 -4 -4.118 -1 -7.118"></path>
@@ -107,6 +117,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <line x1="8" y1="20" x2="12" y2="11"></line>
@@ -118,6 +129,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M9 12a4 4 0 1 0 4 4v-12a5 5 0 0 0 5 5"></path>
@@ -127,6 +139,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M3 15l9 6l9 -6l-9 -6l-9 6"></path>
@@ -141,6 +154,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <circle cx="9" cy="12" r="1"></circle>
@@ -155,6 +169,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z"></path>
@@ -164,6 +179,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M12 8c2.648 0 5.028 .826 6.675 2.14a2.5 2.5 0 0 1 2.326 4.36c0 3.59 -4.03 6.5 -9 6.5c-4.875 0 -8.845 -2.8 -9 -6.294l-1 -.206a2.5 2.5 0 0 1 2.326 -4.36c1.646 -1.313 4.026 -2.14 6.674 -2.14z"></path>
@@ -178,6 +194,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M12 3a9 9 0 0 1 8.603 11.65a4.5 4.5 0 0 1 -5.953 5.953a9 9 0 0 1 -11.253 -11.253a4.5 4.5 0 0 1 5.953 -5.954a8.987 8.987 0 0 1 2.65 -.396z"></path>
@@ -188,6 +205,7 @@ const socialIcons: SocialIcons = {
       class="icon-tabler"
       stroke-linecap="round"
       stroke-linejoin="round"
+      aria-hidden="true"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M16.5 5a4.5 4.5 0 1 1 -.653 8.953l-4.347 3.009l0 .038a3 3 0 0 1 -2.824 2.995l-.176 .005a3 3 0 0 1 -2.94 -2.402l-2.56 -1.098v-3.5l3.51 1.755a2.989 2.989 0 0 1 2.834 -.635l2.727 -3.818a4.5 4.5 0 0 1 4.429 -5.302z"></path>
@@ -198,11 +216,12 @@ const socialIcons: SocialIcons = {
         class="icon-tabler"
         stroke-linecap="round"
         stroke-linejoin="round"
+        aria-hidden="true"
       >
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path>
       </svg>`,
-  Mastodon: `<svg class="icon-tabler" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+  Mastodon: `<svg class="icon-tabler" viewBox="-10 -5 1034 1034" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" aria-hidden="true">
     <path fill="currentColor"
   d="M499 112q-93 1 -166 11q-81 11 -128 33l-14 8q-16 10 -32 25q-22 21 -38 47q-21 33 -32 73q-14 47 -14 103v37q0 77 1 119q3 113 18 188q19 95 62 154q50 67 134 89q109 29 210 24q46 -3 88 -12q30 -7 55 -17l19 -8l-4 -75l-22 6q-28 6 -57 10q-41 6 -78 4q-53 -1 -80 -7
   q-43 -8 -67 -30q-29 -25 -35 -72q-2 -14 -2 -29l25 6q31 6 65 10q48 7 93 9q42 2 92 -2q32 -2 88 -9t107 -30q49 -23 81.5 -54.5t38.5 -63.5q9 -45 13 -109q4 -46 5 -97v-41q0 -56 -14 -103q-11 -40 -32 -73q-16 -26 -38 -47q-15 -15 -32 -25q-12 -8 -14 -8
