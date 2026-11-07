@@ -29,4 +29,20 @@ requiredHeaders.forEach(header => {
   }
 });
 
-console.log('SUCCESS: All required security headers are present.');
+const layoutFile = path.join(process.cwd(), 'src', 'layouts', 'Layout.astro');
+const layoutContent = fs.readFileSync(layoutFile, 'utf8');
+
+const expectedCsp =
+  "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:;";
+
+assert(
+  layoutContent.includes(`content="${expectedCsp}"`),
+  'ERROR: Layout.astro CSP meta tag does not match public/_headers CSP.'
+);
+
+assert(
+  layoutContent.includes('<html lang="ja">'),
+  'ERROR: Layout.astro must set <html lang="ja">.'
+);
+
+console.log('SUCCESS: All required security headers and Layout meta tags are present.');

@@ -1,6 +1,6 @@
 ---
 title: "miband4がRISC-V使ってるみたいで気になる。"
-cover: "/uploads/other_7.jpg"
+cover: "/uploads/7.webp"
 category: "Lifehack"
 pubDatetime: 2019-06-19
 postSlug: "2019-06-19-miband4-riscv-chipset"
