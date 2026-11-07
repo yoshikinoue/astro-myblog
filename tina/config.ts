@@ -1,5 +1,5 @@
 import { defineConfig } from "tinacms";
-import { safeFilename } from "../src/utils/safeFilename";
+import { slug } from "github-slugger";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -36,7 +36,8 @@ export default defineConfig({
             // Example of using a custom slugify function
             slugify: (values) => {
               // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
-              return safeFilename(values?.postSlug || values?.title || "");
+              const input = values?.postSlug || values?.title || "";
+              return slug(input.replace(/[\\/.]/g, "-"));
             },
           },
         },
@@ -52,6 +53,7 @@ export default defineConfig({
             name: 'draft',
             label: 'Draft',
             type: 'boolean',
+            required: true,
             description: 'If this is checked the post will not be published',
           },
           {
@@ -65,16 +67,6 @@ export default defineConfig({
             name: "postSlug",
             label: "postSlug",
             required: true,
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "Description",
-          },
-          {
-            type: "string",
-            name: "category",
-            label: "Category",
           },
           {
             type: "string",

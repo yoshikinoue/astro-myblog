@@ -4,29 +4,14 @@ import { writeFile } from "node:fs/promises";
 import { Resvg } from "@resvg/resvg-js";
 import { safeFilename } from "./safeFilename";
 
-const fetchGoogleFont = async (weight: number): Promise<ArrayBuffer> => {
-  const cssUrl = `https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@${weight}&display=swap`;
-  const css = await fetch(cssUrl, {
-    headers: {
-      // Use a legacy User-Agent so Google Fonts returns TTF/OTF supported by Satori
-      "User-Agent":
-        "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1",
-    },
-  }).then(res => res.text());
-
-  const resource = css.match(
-    /src: url\((.+)\) format\('(opentype|truetype)'\)/
-  );
-  if (!resource || !resource[1]) {
-    throw new Error(`Failed to parse Google Font URL for weight ${weight}`);
-  }
-  return fetch(resource[1]).then(res => res.arrayBuffer());
-};
-
 const fetchFonts = async () => {
   const [fontRegular, fontBold] = await Promise.all([
-    fetchGoogleFont(400),
-    fetchGoogleFont(700),
+    fetch(
+      "https://www.1001fonts.com/download/font/ibm-plex-mono.regular.ttf"
+    ).then(res => res.arrayBuffer()),
+    fetch(
+      "https://www.1001fonts.com/download/font/ibm-plex-mono.bold.ttf"
+    ).then(res => res.arrayBuffer()),
   ]);
 
   return { fontRegular, fontBold };
@@ -134,21 +119,21 @@ const options: SatoriOptions = {
   embedFont: true,
   fonts: [
     {
-      name: "Noto Sans JP",
+      name: "IBM Plex Mono",
       data: fontRegular,
       weight: 400,
       style: "normal",
     },
     {
-      name: "Noto Sans JP",
+      name: "IBM Plex Mono",
       data: fontBold,
-      weight: 700,
+      weight: 600,
       style: "normal",
     },
   ],
 };
 
-const generateOgImage = async (mytext = SITE.title, filenameSlug = mytext) => {
+const generateOgImage = async (mytext = SITE.title) => {
   const svg = await satori(ogImage(mytext), options);
 
   // render png in production mode
@@ -156,7 +141,7 @@ const generateOgImage = async (mytext = SITE.title, filenameSlug = mytext) => {
     const resvg = new Resvg(svg);
     const pngData = resvg.render();
     const pngBuffer = pngData.asPng();
-    const filename = safeFilename(filenameSlug);
+    const filename = safeFilename(mytext);
 
     await writeFile(`./dist/${filename}.png`, pngBuffer);
   }
