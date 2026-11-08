@@ -57,7 +57,7 @@ module.exports = {
       transparent: "transparent",
     },
     fontFamily: {
-      mono: ["Roboto","sans-serif"],
+      mono: ["'Zen Kaku Gothic New'", "sans-serif"],
     },
     // },
   },

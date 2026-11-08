@@ -19,7 +19,7 @@ const requiredHeaders = [
   'Referrer-Policy: strict-origin-when-cross-origin',
   'Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()',
   'Strict-Transport-Security: max-age=31536000; includeSubDomains',
-  "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:;"
+  "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https: https://fonts.gstatic.com; connect-src 'self' https:;"
 ];
 
 requiredHeaders.forEach(header => {
@@ -33,7 +33,7 @@ const layoutFile = path.join(process.cwd(), 'src', 'layouts', 'Layout.astro');
 const layoutContent = fs.readFileSync(layoutFile, 'utf8');
 
 const expectedCsp =
-  "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:;";
+  "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https: https://fonts.gstatic.com; connect-src 'self' https:;";
 
 assert(
   layoutContent.includes(`content="${expectedCsp}"`),
