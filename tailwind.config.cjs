@@ -29,6 +29,7 @@ module.exports = {
       },
     },
     backgroundColor: {
+      transparent: "transparent",
       skin: {
         fill: withOpacity("--color-fill"),
         accent: withOpacity("--color-accent"),
@@ -49,15 +50,29 @@ module.exports = {
         accent: withOpacity("--color-accent"),
       },
     },
+    ringColor: {
+      skin: {
+        accent: withOpacity("--color-accent"),
+        fill: withOpacity("--color-fill"),
+        base: withOpacity("--color-text-base"),
+      },
+    },
+    ringOffsetColor: {
+      skin: {
+        fill: withOpacity("--color-fill"),
+      },
+    },
     fill: {
       skin: {
         base: withOpacity("--color-text-base"),
         accent: withOpacity("--color-accent"),
       },
       transparent: "transparent",
+      none: "none",
     },
     fontFamily: {
       mono: ["'Zen Kaku Gothic New'", "sans-serif"],
+      code: ["'JetBrains Mono'", "'Zen Kaku Gothic New'", "monospace"],
     },
     // },
   },

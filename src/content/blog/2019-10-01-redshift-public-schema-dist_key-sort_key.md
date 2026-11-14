@@ -4,6 +4,8 @@ cover: "/uploads/2.webp"
 category: "Programming"
 pubDatetime: 2019-10-01
 postSlug: "2019-10-01-redshift-public-schema-dist-key-sort-key"
+featured: true
+description: "Redshiftで新規作成したスキーマのテーブル定義（dist_key / sort_key）をPG_TABLE_DEFから確認するためのsearch_path設定方法。"
 tags:
   - aws
   - redshift

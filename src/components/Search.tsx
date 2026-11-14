@@ -7,6 +7,9 @@ import type { BlogFrontmatter } from "@content/_schemas";
 export type SearchItem = {
   title: string;
   description: string;
+  tags: string[];
+  category?: string;
+  body?: string;
   data: BlogFrontmatter;
 };
 
@@ -18,6 +21,16 @@ interface SearchResult {
   item: SearchItem;
   refIndex: number;
 }
+
+const QUICK_FILTER_TAGS = [
+  "redshift",
+  "aws",
+  "datapipeline",
+  "python",
+  "postgresql",
+  "kafka",
+  "linux",
+];
 
 export default function SearchBar({ searchList }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -35,13 +48,18 @@ export default function SearchBar({ searchList }: Props) {
     inputRef.current?.focus();
   };
 
+  const handleQuickFilter = (tag: string) => {
+    setInputVal(prev => (prev.toLowerCase() === tag ? "" : tag));
+    inputRef.current?.focus();
+  };
+
   const fuse = useMemo(
     () =>
       new Fuse(searchList, {
-        keys: ["title", "description"],
+        keys: ["title", "description", "tags", "category"],
         includeMatches: true,
         minMatchCharLength: 2,
-        threshold: 0.5,
+        threshold: 0.45,
       }),
     [searchList]
   );
@@ -55,15 +73,17 @@ export default function SearchBar({ searchList }: Props) {
 
     // put focus cursor at the end of the string
     setTimeout(function () {
-      inputRef.current!.selectionStart = inputRef.current!.selectionEnd =
-        searchStr?.length || 0;
+      if (inputRef.current) {
+        inputRef.current.selectionStart = inputRef.current.selectionEnd =
+          searchStr?.length || 0;
+      }
     }, 50);
   }, []);
 
   useEffect(() => {
     // Add search result only if
     // input value is more than one character
-    let inputResult = inputVal.length > 1 ? fuse.search(inputVal) : [];
+    const inputResult = inputVal.length > 1 ? fuse.search(inputVal) : [];
     setSearchResults(inputResult);
 
     // Update search string in URL
@@ -91,7 +111,7 @@ export default function SearchBar({ searchList }: Props) {
         border-opacity-40 bg-skin-fill py-3 pl-10
         pr-10 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
-          placeholder="Search for anything..."
+          placeholder="Search titles, tags (e.g. redshift), or categories..."
           type="text"
           name="search"
           value={inputVal}
@@ -104,7 +124,7 @@ export default function SearchBar({ searchList }: Props) {
 
         {inputVal.length > 0 && (
           <button
-            className="focus:ring-skin-accent absolute inset-y-0 right-0 mr-2 flex items-center p-1 text-skin-base opacity-75 hover:opacity-100 focus:outline-none focus:ring-2"
+            className="absolute inset-y-0 right-0 mr-2 flex items-center p-1 text-skin-base opacity-75 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-skin-accent"
             onClick={clearInput}
             aria-label="Clear search"
             type="button"
@@ -128,6 +148,32 @@ export default function SearchBar({ searchList }: Props) {
         )}
       </label>
 
+      <div
+        className="mt-4 flex flex-wrap items-center gap-2"
+        role="group"
+        aria-label="Quick filter tags"
+      >
+        <span className="font-code text-xs opacity-70">Quick Tags:</span>
+        {QUICK_FILTER_TAGS.map(tag => {
+          const isActive = inputVal.trim().toLowerCase() === tag;
+          return (
+            <button
+              key={tag}
+              type="button"
+              onClick={() => handleQuickFilter(tag)}
+              aria-pressed={isActive}
+              className={`rounded border px-2.5 py-1 font-code text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent ${
+                isActive
+                  ? "border-skin-accent bg-skin-accent text-skin-inverted"
+                  : "border-skin-line bg-skin-card bg-opacity-50 text-skin-base hover:border-skin-accent hover:text-skin-accent"
+              }`}
+            >
+              #{tag}
+            </button>
+          );
+        })}
+      </div>
+
       {inputVal.length > 1 && (
         <div className="mt-8" aria-live="polite">
           Found {searchResults?.length}
@@ -144,6 +190,7 @@ export default function SearchBar({ searchList }: Props) {
             <Card
               href={`/posts/${slugify(item.data)}`}
               frontmatter={item.data}
+              body={item.body}
               key={`${refIndex}-${slugify(item.data)}`}
             />
           ))}

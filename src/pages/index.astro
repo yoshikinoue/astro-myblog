@@ -8,50 +8,138 @@ import Hr from "@components/Hr.astro";
 import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
+import getUniqueTags from "@utils/getUniqueTags";
 import slugify from "@utils/slugify";
-import { SOCIALS } from "@config";
+import { SITE, SOCIALS } from "@config";
 
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const uniqueTags = getUniqueTags(posts);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
+
+const techStacks = [
+  {
+    title: "DWH & Lakehouse",
+    highlight: true,
+    items: [
+      { label: "BigQuery", href: "/search?q=bigquery" },
+      { label: "Snowflake", href: "/search?q=snowflake" },
+      { label: "Amazon Redshift", href: "/tags/redshift" },
+      { label: "Apache Iceberg", href: "/search?q=iceberg" },
+      { label: "DuckDB", href: "/search?q=duckdb" },
+    ],
+  },
+  {
+    title: "Data Pipeline & Streaming",
+    highlight: false,
+    items: [
+      { label: "AWS Data Pipeline", href: "/tags/datapipeline" },
+      { label: "Apache Kafka", href: "/tags/kafka" },
+      { label: "PostgreSQL", href: "/tags/postgresql" },
+      { label: "ETL / ELT", href: "/tags/pipeline" },
+    ],
+  },
+  {
+    title: "Languages & Cloud Infra",
+    highlight: false,
+    items: [
+      { label: "SQL", href: "/tags/redshift" },
+      { label: "Python", href: "/tags/python" },
+      { label: "AWS", href: "/tags/aws" },
+      { label: "Linux", href: "/tags/linux" },
+      { label: "Git", href: "/tags/git" },
+    ],
+  },
+];
 ---
 
 <Layout>
   <Header />
   <main id="main-content">
     <section id="hero">
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon" aria-hidden="true"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-      </a>
+      <div class="hero-top-bar">
+        <span class="role-badge">
+          <span class="status-dot" aria-hidden="true"></span>
+          DATA ENGINEER / DWH &amp; LAKEHOUSE
+        </span>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="/rss.xml"
+          class="rss-link"
+          aria-label="rss feed"
+          title="RSS Feed"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon" aria-hidden="true"
+            ><path
+              d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
+            ></path><path
+              d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
+            ></path><circle cx="6" cy="18" r="2"></circle>
+          </svg>
+        </a>
+      </div>
 
-      <p>
-        SOFTSKILLS読んでいっちょやるかーって作ったページ
+      <h1>Data Architecture &amp; Pipeline Engineering</h1>
+
+      <p class="hero-desc">
+        <strong>{SITE.title}</strong> は @{SITE.author} によるデータエンジニアリング技術ブログです。
+        DWH / Lakehouse 基盤の設計、ETL/ELT パイプライン運用、SQL チューニング、実務での障害・トラブルシューティング知見を発信しています。
       </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
+
+      <div class="stack-grid" aria-label="Technical Stack">
+        {
+          techStacks.map(group => (
+            <div
+              class={`stack-card ${
+                group.highlight ? "stack-card-highlight" : "stack-card-default"
+              }`}
+            >
+              <div class="stack-card-header">
+                <h2>{group.title}</h2>
+                {group.highlight && <span class="core-badge">CORE</span>}
+              </div>
+              <div class="stack-pills">
+                {group.items.map(item => (
+                  <a href={item.href} class="stack-pill">
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="stats-social-bar">
+        <div class="stats-group" aria-label="Blog metrics">
+          <span class="stat-item">
+            <span class="stat-label">Articles:</span>
+            <span class="stat-value">{sortedPosts.length}</span>
+          </span>
+          <span class="stat-sep" aria-hidden="true">/</span>
+          <span class="stat-item">
+            <span class="stat-label">Tags:</span>
+            <span class="stat-value">{uniqueTags.length}</span>
+          </span>
+          <span class="stat-sep" aria-hidden="true">/</span>
+          <span class="stat-item">
+            <span class="stat-label">Focus:</span>
+            <span class="stat-value">Modern Data Stack</span>
+          </span>
+        </div>
+        {
+          // only display if at least one social link is enabled
+          socialCount > 0 && (
+            <div class="social-wrapper">
+              <Socials />
+            </div>
+          )
+        }
+      </div>
     </section>
 
     <Hr />
@@ -60,12 +148,16 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       featuredPosts.length > 0 && (
         <>
           <section id="featured">
-            <h2>Featured</h2>
+            <div class="section-heading">
+              <h2>Featured</h2>
+              <span class="section-sub font-code">Picked Data Engineering Notes</span>
+            </div>
             <ul>
-              {featuredPosts.map(({ data }) => (
+              {featuredPosts.map(({ data, body }) => (
                 <Card
                   href={`/posts/${slugify(data)}`}
                   frontmatter={data}
+                  body={body}
                   secHeading={false}
                 />
               ))}
@@ -77,16 +169,20 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     }
 
     <section id="recent-posts">
-      <h2>Recent Posts</h2>
+      <div class="section-heading">
+        <h2>Recent Posts</h2>
+        <span class="section-sub font-code">Latest Logs</span>
+      </div>
       <ul>
         {
           sortedPosts.map(
-            ({ data }, index) =>
+            ({ data, body }, index) =>
               index < 4 && (
                 <Card
                   rel="prefetch"
                   href={`/posts/${slugify(data)}`}
                   frontmatter={data}
+                  body={body}
                   secHeading={false}
                 />
               )
@@ -112,35 +208,96 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <style>
   /* ===== Hero Section ===== */
   #hero {
-    @apply pb-6 pt-8;
+    @apply pb-8 pt-8;
+  }
+  .hero-top-bar {
+    @apply flex items-center justify-between gap-2;
+  }
+  .role-badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-skin-accent bg-skin-accent bg-opacity-10 px-3 py-1 font-code text-xs font-semibold tracking-wide text-skin-accent;
+  }
+  .status-dot {
+    @apply inline-block h-2 w-2 rounded-full bg-skin-accent;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply my-4 text-2xl font-bold tracking-tight sm:text-4xl;
+  }
+  .hero-desc {
+    @apply my-2 text-sm leading-relaxed opacity-90 sm:text-base;
   }
   #hero .rss-link {
-    @apply mb-6;
+    @apply inline-flex items-center rounded p-1 hover:text-skin-accent;
   }
   #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
+    @apply h-5 w-5 fill-skin-accent;
   }
-  #hero p {
-    @apply my-2;
+
+  /* ===== Tech Stack Dashboard Cards ===== */
+  .stack-grid {
+    @apply my-6 grid grid-cols-1 gap-3 sm:grid-cols-3;
+  }
+  .stack-card {
+    @apply rounded-lg border p-4 transition-colors;
+  }
+  .stack-card-highlight {
+    @apply border-skin-accent border-opacity-60 bg-skin-card bg-opacity-70;
+  }
+  .stack-card-default {
+    @apply border-skin-line bg-skin-card bg-opacity-40;
+  }
+  .stack-card-header {
+    @apply mb-3 flex items-center justify-between gap-2;
+  }
+  .stack-card-header h2 {
+    @apply font-code text-xs font-semibold uppercase tracking-wider text-skin-accent;
+  }
+  .core-badge {
+    @apply rounded bg-skin-accent px-1.5 py-0.5 font-code text-[10px] font-bold text-skin-inverted;
+  }
+  .stack-pills {
+    @apply flex flex-wrap gap-1.5;
+  }
+  .stack-pill {
+    @apply rounded border border-skin-line bg-skin-fill px-2 py-0.5 font-code text-xs transition-colors hover:border-skin-accent hover:text-skin-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent;
+  }
+
+  /* ===== Stats & Social Bar ===== */
+  .stats-social-bar {
+    @apply flex flex-wrap items-center justify-between gap-3 rounded-lg border border-skin-line bg-skin-card bg-opacity-40 px-4 py-2.5;
+  }
+  .stats-group {
+    @apply flex flex-wrap items-center gap-2 font-code text-xs sm:text-sm;
+  }
+  .stat-item {
+    @apply inline-flex items-center gap-1;
+  }
+  .stat-label {
+    @apply opacity-75;
+  }
+  .stat-value {
+    @apply font-semibold text-skin-accent;
+  }
+  .stat-sep {
+    @apply opacity-40;
   }
   .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-  }
-  .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
+    @apply flex items-center;
   }
 
   /* ===== Featured & Recent Posts Sections ===== */
   #featured,
   #recent-posts {
-    @apply pb-6 pt-12;
+    @apply pb-6 pt-10;
+  }
+  .section-heading {
+    @apply mb-2 flex flex-wrap items-baseline justify-between gap-2;
   }
   #featured h2,
   #recent-posts h2 {
     @apply text-2xl font-semibold tracking-wide;
+  }
+  .section-sub {
+    @apply text-xs opacity-70;
   }
   .all-posts-btn-wrapper {
     @apply my-8 text-center;

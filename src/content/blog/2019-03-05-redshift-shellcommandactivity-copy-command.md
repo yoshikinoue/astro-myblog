@@ -4,6 +4,8 @@ cover: "/uploads/2.webp"
 category: "AWS"
 pubDatetime: 2019-03-05
 postSlug: "2019-03-05-redshift-shellcommandactivity-copy-command"
+featured: true
+description: "AWS Data PipelineのShellCommandActivityからpsql経由でRedshift COPYコマンドや複数SQLジョブを実行するパイプライン構築パターン。"
 tags:
   - redshift
 ---
