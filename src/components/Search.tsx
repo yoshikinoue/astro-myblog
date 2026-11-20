@@ -9,13 +9,10 @@ export type SearchItem = {
   description: string;
   tags: string[];
   category?: string;
-  body?: string;
+  excerpt: string;
+  readingTime: string;
   data: BlogFrontmatter;
 };
-
-interface Props {
-  searchList: SearchItem[];
-}
 
 interface SearchResult {
   item: SearchItem;
@@ -32,9 +29,10 @@ const QUICK_FILTER_TAGS = [
   "linux",
 ];
 
-export default function SearchBar({ searchList }: Props) {
+export default function SearchBar() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputVal, setInputVal] = useState("");
+  const [searchList, setSearchList] = useState<SearchItem[] | null>(null);
   const [searchResults, setSearchResults] = useState<SearchResult[] | null>(
     null
   );
@@ -55,14 +53,32 @@ export default function SearchBar({ searchList }: Props) {
 
   const fuse = useMemo(
     () =>
-      new Fuse(searchList, {
-        keys: ["title", "description", "tags", "category"],
-        includeMatches: true,
-        minMatchCharLength: 2,
-        threshold: 0.45,
-      }),
+      searchList
+        ? new Fuse(searchList, {
+            keys: ["title", "description", "tags", "category"],
+            includeMatches: true,
+            minMatchCharLength: 2,
+            threshold: 0.45,
+          })
+        : null,
     [searchList]
   );
+
+  useEffect(() => {
+    // 検索インデックスは JSON として分離し、ページ表示後に遅延読み込みする
+    let cancelled = false;
+    fetch("/search-index.json")
+      .then(res => res.json())
+      .then((items: SearchItem[]) => {
+        if (!cancelled) setSearchList(items);
+      })
+      .catch(() => {
+        if (!cancelled) setSearchList([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     // if URL has search query,
@@ -83,7 +99,8 @@ export default function SearchBar({ searchList }: Props) {
   useEffect(() => {
     // Add search result only if
     // input value is more than one character
-    const inputResult = inputVal.length > 1 ? fuse.search(inputVal) : [];
+    const inputResult =
+      fuse && inputVal.length > 1 ? fuse.search(inputVal) : [];
     setSearchResults(inputResult);
 
     // Update search string in URL
@@ -111,7 +128,7 @@ export default function SearchBar({ searchList }: Props) {
         border-opacity-40 bg-skin-fill py-3 pl-10
         pr-10 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
-          placeholder="Search titles, tags (e.g. redshift), or categories..."
+          placeholder="Search titles or tags..."
           type="text"
           name="search"
           value={inputVal}
@@ -174,13 +191,25 @@ export default function SearchBar({ searchList }: Props) {
         })}
       </div>
 
+      {inputVal.length === 0 && (
+        <p className="mt-8 text-sm opacity-75">
+          記事のタイトルやタグで検索できます。上のクイックタグからも探せます。
+        </p>
+      )}
+
       {inputVal.length > 1 && (
         <div className="mt-8" aria-live="polite">
-          Found {searchResults?.length}
-          {searchResults?.length && searchResults?.length === 1
-            ? " result"
-            : " results"}{" "}
-          for '{inputVal}'
+          {searchList === null ? (
+            <>検索インデックスを読み込み中…</>
+          ) : (
+            <>
+              Found {searchResults?.length}
+              {searchResults?.length && searchResults?.length === 1
+                ? " result"
+                : " results"}{" "}
+              for '{inputVal}'
+            </>
+          )}
         </div>
       )}
 
@@ -190,7 +219,8 @@ export default function SearchBar({ searchList }: Props) {
             <Card
               href={`/posts/${slugify(item.data)}`}
               frontmatter={item.data}
-              body={item.body}
+              excerpt={item.excerpt}
+              readingTime={item.readingTime}
               key={`${refIndex}-${slugify(item.data)}`}
             />
           ))}
