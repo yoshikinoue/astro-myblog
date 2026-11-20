@@ -22,7 +22,7 @@ const { activeNav } = Astro.props;
           LOGO_IMAGE.enable ? (
             <img
               src={LOGO_IMAGE.svg ? logoSVG : logoPNG}
-              alt="AstroPaper Logo"
+              alt={SITE.title}
               width={LOGO_IMAGE.width}
               height={LOGO_IMAGE.height}
             />
@@ -140,7 +140,7 @@ const { activeNav } = Astro.props;
     @apply absolute py-1 text-xl font-semibold sm:text-2xl;
   }
   .hamburger-menu {
-    @apply self-end p-2 sm:hidden;
+    @apply self-end p-3 sm:hidden;
   }
   .hamburger-menu svg {
     @apply h-6 w-6 scale-125 fill-skin-base;
@@ -177,7 +177,7 @@ const { activeNav } = Astro.props;
     @apply fill-skin-accent;
   }
 
-  nav button {
+  nav button:not(.hamburger-menu) {
     @apply p-1;
   }
   nav button svg {

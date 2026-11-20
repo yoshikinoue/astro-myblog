@@ -111,7 +111,7 @@ export default function SearchBar({ searchList }: Props) {
         border-opacity-40 bg-skin-fill py-3 pl-10
         pr-10 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
-          placeholder="Search titles, tags (e.g. redshift), or categories..."
+          placeholder="Search titles or tags..."
           type="text"
           name="search"
           value={inputVal}
@@ -173,6 +173,12 @@ export default function SearchBar({ searchList }: Props) {
           );
         })}
       </div>
+
+      {inputVal.length === 0 && (
+        <p className="mt-8 text-sm opacity-75">
+          記事のタイトルやタグで検索できます。上のクイックタグからも探せます。
+        </p>
+      )}
 
       {inputVal.length > 1 && (
         <div className="mt-8" aria-live="polite">

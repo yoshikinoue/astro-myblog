@@ -16,6 +16,9 @@ const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts
+  .filter(({ data }) => !data.featured)
+  .slice(0, 4);
 const uniqueTags = getUniqueTags(posts);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
@@ -175,18 +178,15 @@ const techStacks = [
       </div>
       <ul>
         {
-          sortedPosts.map(
-            ({ data, body }, index) =>
-              index < 4 && (
-                <Card
-                  rel="prefetch"
-                  href={`/posts/${slugify(data)}`}
-                  frontmatter={data}
-                  body={body}
-                  secHeading={false}
-                />
-              )
-          )
+          recentPosts.map(({ data, body }) => (
+            <Card
+              rel="prefetch"
+              href={`/posts/${slugify(data)}`}
+              frontmatter={data}
+              body={body}
+              secHeading={false}
+            />
+          ))
         }
       </ul>
       <div class="all-posts-btn-wrapper">
@@ -226,7 +226,7 @@ const techStacks = [
     @apply my-2 text-sm leading-relaxed opacity-90 sm:text-base;
   }
   #hero .rss-link {
-    @apply inline-flex items-center rounded p-1 hover:text-skin-accent;
+    @apply -m-2 inline-flex items-center rounded p-3 hover:text-skin-accent;
   }
   #hero .rss-icon {
     @apply h-5 w-5 fill-skin-accent;
