@@ -54,10 +54,11 @@ window.onload = () => {
   });
 };
 
-// sync with system changes
+// sync with system changes, unless the user has chosen a theme manually
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", ({ matches: isDark }) => {
+    if (localStorage.getItem("theme")) return;
     themeValue = isDark ? "dark" : "light";
-    setPreference();
+    reflectPreference();
   });

@@ -52,6 +52,9 @@ const next = pageNum < totalPages ? "" : "disabled";
           </svg>
           Prev
         </LinkButton>
+        <span class="mx-1 self-center text-sm opacity-80" aria-current="page">
+          {pageNum} / {totalPages}
+        </span>
         <LinkButton
           disabled={next === "disabled"}
           href={`/posts/${pageNum + 1}`}
