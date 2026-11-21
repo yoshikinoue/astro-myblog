@@ -8,7 +8,7 @@ tags:
   - aws
   - datapipeline
 draft: false
-featured: true
+featured: false
 description: "AWS CLIを使用して既存のData Pipeline定義をJSON出力・新規作成・マルチバイト文字化けを防いでアップロードする手順。"
 ---
 

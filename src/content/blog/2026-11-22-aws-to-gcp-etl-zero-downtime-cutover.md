@@ -4,7 +4,7 @@ pubDatetime: 2026-11-22T00:00:00.000Z
 postSlug: "aws-to-gcp-etl-zero-downtime-cutover"
 category: "Data Engineering"
 featured: true
-draft: true
+draft: false
 description: "1日最大3億8,400万レコードが発生し続ける ETL バッチを、AWS から GCP へ無停止で移行したときの切り替え方式と検証の進め方。"
 tags:
   - aws
