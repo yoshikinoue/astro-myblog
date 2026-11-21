@@ -314,6 +314,30 @@ const relatedPosts = posts
     opacity: 0;
     transition: opacity 0.2s ease;
   }
+  /* 幅の広い表は記事内で横スクロールさせ、ページ全体の横スクロールを防ぐ */
+  .table-scroll-wrapper {
+    position: relative;
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+  }
+  .table-scroll {
+    overflow-x: auto;
+  }
+  .table-scroll table {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .table-scroll-fade {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 3rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
   .copy-code-btn {
     position: absolute;
     top: 0.5rem;
@@ -423,7 +447,47 @@ const relatedPosts = posts
     });
   }
 
+  function attachTableScroll() {
+    const tables = document.querySelectorAll("#article table");
+
+    tables.forEach(table => {
+      if (table.parentElement?.classList.contains("table-scroll")) return;
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "table-scroll-wrapper";
+      const scroller = document.createElement("div");
+      scroller.className = "table-scroll";
+
+      table.parentNode?.insertBefore(wrapper, table);
+      wrapper.appendChild(scroller);
+      scroller.appendChild(table);
+
+      // コードブロックと同じく、横スクロールできる場合は右端にフェードを表示する
+      const fade = document.createElement("div");
+      fade.className = "table-scroll-fade";
+      fade.setAttribute("aria-hidden", "true");
+      wrapper.appendChild(fade);
+
+      const updateFade = () => {
+        const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+        const canScroll = maxScroll > 1;
+        const atEnd = scroller.scrollLeft >= maxScroll - 2;
+        if (canScroll && !atEnd) {
+          const bg = getComputedStyle(document.body).backgroundColor;
+          fade.style.background = `linear-gradient(to right, transparent, ${bg})`;
+          fade.style.opacity = "1";
+        } else {
+          fade.style.opacity = "0";
+        }
+      };
+      scroller.addEventListener("scroll", updateFade, { passive: true });
+      window.addEventListener("resize", updateFade);
+      updateFade();
+    });
+  }
+
   window.addEventListener("scroll", updateProgressBar, { passive: true });
   updateProgressBar();
   attachCopyButtons();
+  attachTableScroll();
 </script>
