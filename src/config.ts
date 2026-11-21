@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "Yoshikinoue",
   desc: "DWH / Lakehouse（BigQuery・Snowflake・Redshift・Iceberg・DuckDB）やデータパイプライン設計、SQL・Pythonに関するデータエンジニアリング技術ブログ",
   title: "焼き芋ストロング",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "yakiimo-strong-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 10,
 };
