@@ -34,8 +34,8 @@ const { activeNav } = Astro.props;
       <nav id="nav-menu">
         <button
           class="hamburger-menu focus-outline"
-          aria-label="Open Menu"
-          title="Open Menu"
+          aria-label="メニューを開く"
+          title="メニューを開く"
           aria-expanded="false"
           aria-controls="menu-items"
           aria-haspopup="menu"
@@ -67,7 +67,7 @@ const { activeNav } = Astro.props;
               class={activeNav === "posts" ? "active" : ""}
               aria-current={activeNav === "posts" ? "page" : undefined}
             >
-              Posts
+              記事一覧
             </a>
           </li>
           <li>
@@ -76,7 +76,16 @@ const { activeNav } = Astro.props;
               class={activeNav === "tags" ? "active" : ""}
               aria-current={activeNav === "tags" ? "page" : undefined}
             >
-              Tags
+              タグ
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+              class={activeNav === "about" ? "active" : ""}
+              aria-current={activeNav === "about" ? "page" : undefined}
+            >
+              プロフィール
             </a>
           </li>
           <li>
@@ -85,8 +94,8 @@ const { activeNav } = Astro.props;
               className={`focus-outline p-3 sm:p-1 ${
                 activeNav === "search" ? "active" : ""
               }`}
-              ariaLabel="Search"
-              title="Search"
+              ariaLabel="検索"
+              title="検索"
               ariaCurrent={activeNav === "search" ? "page" : undefined}
             >
               <svg
@@ -105,8 +114,8 @@ const { activeNav } = Astro.props;
                 <button
                   id="theme-btn"
                   class="focus-outline"
-                  title="Toggles light & dark"
-                  aria-label="Toggle theme"
+                  title="テーマを切り替え"
+                  aria-label="テーマを切り替え"
                   aria-live="polite"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" id="moon-svg" aria-hidden="true">
@@ -216,11 +225,11 @@ const { activeNav } = Astro.props;
     menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
     menuBtn.setAttribute(
       "aria-label",
-      menuExpanded ? "Open Menu" : "Close Menu"
+      menuExpanded ? "メニューを開く" : "メニューを閉じる"
     );
     menuBtn.setAttribute(
       "title",
-      menuExpanded ? "Open Menu" : "Close Menu"
+      menuExpanded ? "メニューを開く" : "メニューを閉じる"
     );
     menuItems?.classList.toggle("display-none");
   });

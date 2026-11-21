@@ -6,16 +6,23 @@ const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
 // eg: /tags/tailwindcss => ['tags', 'tailwindcss']
 const breadcrumbList = currentUrlPath.split("/").slice(1);
 
-// if breadcrumb is Home > Posts > 1 <etc>
-// replace Posts with Posts (page number)
+// if breadcrumb is トップ > 記事一覧（Nページ目） <etc>
+// replace posts segment with a page label
 breadcrumbList[0] === "posts" &&
-  breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
+  breadcrumbList.splice(0, 2, `記事一覧（${breadcrumbList[1] || 1}ページ目）`);
+
+const segmentLabels: Record<string, string> = {
+  posts: "記事一覧",
+  tags: "タグ",
+  search: "検索",
+  about: "プロフィール",
+};
 ---
 
-<nav class="breadcrumb" aria-label="breadcrumb">
+<nav class="breadcrumb" aria-label="パンくずリスト">
   <ul>
     <li>
-      <a href="/">Home</a>
+      <a href="/">トップ</a>
       <span aria-hidden="true">&#62;</span>
     </li>
     {
@@ -26,13 +33,13 @@ breadcrumbList[0] === "posts" &&
               class={`${index > 0 ? "lowercase" : "capitalize"}`}
               aria-current="page"
             >
-              {/* make the last part lowercase in Home > Tags > some-tag */}
-              {breadcrumb}
+              {/* make the last part lowercase in トップ > タグ > some-tag */}
+              {segmentLabels[breadcrumb] ?? breadcrumb}
             </span>
           </li>
         ) : (
           <li>
-            <a href={`/${breadcrumb}`}>{breadcrumb}</a>
+            <a href={`/${breadcrumb}`}>{segmentLabels[breadcrumb] ?? breadcrumb}</a>
             <span aria-hidden="true">&#62;</span>
           </li>
         )

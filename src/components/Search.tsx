@@ -128,7 +128,7 @@ export default function SearchBar() {
         border-opacity-40 bg-skin-fill py-3 pl-10
         pr-10 placeholder:italic placeholder:text-opacity-75
         focus:border-skin-accent focus:outline-none"
-          placeholder="Search titles or tags..."
+          placeholder="タイトルやタグで検索..."
           type="text"
           name="search"
           value={inputVal}
@@ -136,14 +136,14 @@ export default function SearchBar() {
           autoComplete="off"
           autoFocus
           ref={inputRef}
-          aria-label="Search"
+          aria-label="検索"
         />
 
         {inputVal.length > 0 && (
           <button
             className="absolute inset-y-0 right-0 mr-2 flex items-center p-1 text-skin-base opacity-75 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-skin-accent"
             onClick={clearInput}
-            aria-label="Clear search"
+            aria-label="検索をクリア"
             type="button"
           >
             <svg
@@ -168,9 +168,9 @@ export default function SearchBar() {
       <div
         className="mt-4 flex flex-wrap items-center gap-2"
         role="group"
-        aria-label="Quick filter tags"
+        aria-label="クイックフィルタ"
       >
-        <span className="font-code text-xs opacity-70">Quick Tags:</span>
+        <span className="font-code text-xs opacity-70">クイックタグ:</span>
         {QUICK_FILTER_TAGS.map(tag => {
           const isActive = inputVal.trim().toLowerCase() === tag;
           return (
@@ -202,13 +202,7 @@ export default function SearchBar() {
           {searchList === null ? (
             <>検索インデックスを読み込み中…</>
           ) : (
-            <>
-              Found {searchResults?.length}
-              {searchResults?.length && searchResults?.length === 1
-                ? " result"
-                : " results"}{" "}
-              for '{inputVal}'
-            </>
+            <>「{inputVal}」の検索結果: {searchResults?.length}件</>
           )}
         </div>
       )}

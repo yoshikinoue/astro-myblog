@@ -36,6 +36,12 @@
   footer {
     @apply mx-auto max-w-3xl px-4;
   }
+  /* 幅広レイアウト（トップページのみ）: ヘッダー・セクション・フッターを広げる */
+  body.layout-wide .nav-container,
+  body.layout-wide section,
+  body.layout-wide footer {
+    @apply max-w-5xl;
+  }
   a {
     @apply outline-2 outline-offset-1 outline-skin-fill 
     focus-visible:no-underline focus-visible:outline-dashed;

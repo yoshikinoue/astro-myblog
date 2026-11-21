@@ -1,0 +1,79 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Socials from "@components/Socials.astro";
+---
+
+<Layout title={`プロフィール | ${SITE.title}`}>
+  <Header activeNav="about" />
+  <Main
+    pageTitle="プロフィール"
+    pageDesc="このブログの運営者について。"
+  >
+    <div class="about-body">
+      <section>
+        <h2>自己紹介</h2>
+        <p>
+          Yoshikinoue と申します。データエンジニアリングマネージャー／データ基盤チーム責任者として、DWH・Lakehouse
+          基盤の設計と運用、データパイプラインの開発、顧客情報分析の基盤づくりに携わっています。
+        </p>
+        <p>
+          扱うデータの規模は最大で TB 級です。バッチ処理の設計からストリーミング連携、SQL
+          チューニング、障害対応まで、データ基盤まわりの実務全般が守備範囲です。
+        </p>
+      </section>
+
+      <section>
+        <h2>技術スタック</h2>
+        <ul>
+          <li>DWH / Lakehouse: BigQuery、Snowflake、Amazon Redshift、Apache Iceberg、DuckDB</li>
+          <li>データパイプライン: ETL / ELT 設計、Apache Kafka、Dataform</li>
+          <li>言語: SQL、Python</li>
+          <li>クラウド / IaC: Google Cloud、AWS、Terraform</li>
+          <li>関心領域: AI エージェントと LLM のデータ基盤</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>資格</h2>
+        <ul>
+          <li>Google Cloud Professional Data Engineer</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>このブログについて</h2>
+        <p>
+          「{SITE.title}」は、データエンジニアリングの実務で得た知見を記録する技術ブログです。DWH
+          / Lakehouse 基盤の設計、ETL / ELT パイプラインの運用、SQL
+          チューニング、障害・トラブルシューティングの事例を中心に書いています。
+        </p>
+      </section>
+
+      <section>
+        <h2>リンク</h2>
+        <Socials />
+      </section>
+    </div>
+  </Main>
+  <Footer />
+</Layout>
+
+<style>
+  .about-body section {
+    @apply my-8;
+  }
+  .about-body h2 {
+    @apply mb-3 text-xl font-semibold tracking-wide;
+  }
+  .about-body p {
+    @apply my-3 leading-relaxed;
+    font-style: normal;
+  }
+  .about-body ul {
+    @apply my-3 list-disc space-y-1.5 pl-6 leading-relaxed;
+  }
+</style>
