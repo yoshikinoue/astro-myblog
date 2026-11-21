@@ -225,11 +225,11 @@ const { activeNav } = Astro.props;
     menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
     menuBtn.setAttribute(
       "aria-label",
-      menuExpanded ? "Open Menu" : "Close Menu"
+      menuExpanded ? "メニューを開く" : "メニューを閉じる"
     );
     menuBtn.setAttribute(
       "title",
-      menuExpanded ? "Open Menu" : "Close Menu"
+      menuExpanded ? "メニューを開く" : "メニューを閉じる"
     );
     menuItems?.classList.toggle("display-none");
   });
