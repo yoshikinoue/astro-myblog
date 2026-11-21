@@ -1,7 +1,7 @@
 ---
 title: Django dumpdata json output
 cover: "/uploads/2.webp"
-category: "AWS"
+category: "Development"
 pubDatetime: 2019-02-14
 postSlug: "2019-02-14-django-dumpdata-json-output"
 tags:

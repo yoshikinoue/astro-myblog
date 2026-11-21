@@ -1,7 +1,7 @@
 ---
 title: "Varnish6.1 install Enterprise Linux7"
 cover: "/uploads/2.webp"
-category: "Varnish"
+category: "Cloud"
 pubDatetime: 2018-10-29
 postSlug: "2018-10-29-varnish-install-enterprise-linux"
 tags:

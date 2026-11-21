@@ -1,7 +1,7 @@
 ---
 title: AWS DataPipeline でsjisからutf8に変換してgzipで圧縮したい
 cover: "/uploads/2.webp"
-category: "AWS"
+category: "Data Engineering"
 pubDatetime: 2019-02-15
 postSlug: "2019-02-15-aws-datapipeline-sjis-conv-utf8-gzip"
 tags:

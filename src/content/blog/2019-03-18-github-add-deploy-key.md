@@ -1,7 +1,7 @@
 ---
 title: "github deploykey を登録"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-03-18
 postSlug: "2019-03-18-github-add-deploy-key"
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Redshift スキーマの削除"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Data Engineering"
 pubDatetime: 2019-05-30
 postSlug: "2019-05-30-redshift-delete-schema"
 tags:

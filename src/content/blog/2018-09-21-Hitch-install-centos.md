@@ -1,7 +1,7 @@
 ---
 title: "SSL/TLSプロキシサーバ Hitch インストール"
 cover: "/uploads/2.webp"
-category: "Git"
+category: "Cloud"
 pubDatetime: 2018-09-21
 postSlug: "2018-09-21-Hitch-install-centos"
 tags:

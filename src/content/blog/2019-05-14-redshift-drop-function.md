@@ -1,7 +1,7 @@
 ---
 title: "Redshift DROP FUNCTION で UDF を削除する"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Data Engineering"
 pubDatetime: 2019-05-14
 postSlug: "2019-05-14-redshift-drop-function"
 tags:

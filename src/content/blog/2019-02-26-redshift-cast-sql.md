@@ -1,7 +1,7 @@
 ---
 title: redshift cast sql
 cover: "/uploads/2.webp"
-category: "AWS"
+category: "Data Engineering"
 pubDatetime: 2019-02-26
 postSlug: "2019-02-26-redshift-cast-sql"
 tags:

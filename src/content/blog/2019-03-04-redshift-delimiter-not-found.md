@@ -1,7 +1,7 @@
 ---
 title: "Redshift COPY Delimiter not found"
 cover: "/uploads/2.webp"
-category: "AWS"
+category: "Data Engineering"
 pubDatetime: 2019-03-04
 postSlug: "2019-03-04-redshift-delimiter-not-found"
 tags:

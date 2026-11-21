@@ -1,7 +1,7 @@
 ---
 title: WordPressで管理画面のライブラリの表示が遅いのでpost_mime_typeのインデックスを貼ったら早くなった。
 cover: "/uploads/2.webp"
-category: "WordPress"
+category: "Cloud"
 pubDatetime: 2019-02-08
 postSlug: "2019-02-08-WordPress-Admin-page-library-mysql-index"
 tags:

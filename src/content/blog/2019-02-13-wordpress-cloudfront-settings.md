@@ -1,7 +1,7 @@
 ---
 title: WordPress CloudFront settings
 cover: "/uploads/2.webp"
-category: "CloudFront"
+category: "Cloud"
 pubDatetime: 2019-02-13
 postSlug: "2019-02-13-wordpress-cloudfront-settings"
 tags:

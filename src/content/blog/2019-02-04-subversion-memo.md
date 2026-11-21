@@ -1,7 +1,7 @@
 ---
 title: subversionのメモ
 cover: "/uploads/2.webp"
-category: "subversion"
+category: "Development"
 pubDatetime: 2019-02-04
 postSlug: "2019-02-04-subversion-memo"
 tags:

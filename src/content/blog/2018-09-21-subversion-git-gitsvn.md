@@ -1,7 +1,7 @@
 ---
 title: Git-svnでSubversionからGitに移行方法
 cover: "/uploads/2.webp"
-category: "Git"
+category: "Development"
 pubDatetime: 2018-09-21
 postSlug: "2018-09-21-subversion-git-gitsvn"
 tags:

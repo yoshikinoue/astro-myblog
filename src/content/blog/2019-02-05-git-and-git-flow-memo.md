@@ -1,7 +1,7 @@
 ---
 title: Git / Git-flow メモ
 cover: "/uploads/2.webp"
-category: "Git"
+category: "Development"
 pubDatetime: 2019-02-05
 postSlug: "2019-02-05-git-and-git-flow-memo"
 tags:

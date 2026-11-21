@@ -1,7 +1,7 @@
 ---
 title: "iconvでsjisからutf8に変換時にエラー"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-04-17
 postSlug: "2019-04-17-sjis-conv-utf8-error"
 tags:

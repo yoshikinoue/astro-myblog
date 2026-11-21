@@ -2,7 +2,7 @@
 title: "Gemini Enterprise 導入の初期メモ"
 pubDatetime: 2026-11-22T00:00:00.000Z
 postSlug: "gemini-enterprise-introduction-notes"
-category: "AI Platform"
+category: "Data Engineering"
 featured: true
 draft: false
 description: "シャドーAI対策として Gemini Enterprise を導入し始めた。基盤側の初期段階の作業と、現時点の所感のメモ。"
