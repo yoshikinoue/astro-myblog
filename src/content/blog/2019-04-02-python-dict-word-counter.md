@@ -1,7 +1,7 @@
 ---
 title: "python dict 内の指定したキーのvalueの個数を数える"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-04-02
 postSlug: "2019-04-02-python-dict-word-counter"
 tags:

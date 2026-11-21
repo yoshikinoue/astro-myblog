@@ -1,7 +1,7 @@
 ---
 title: "how to yum install librdkafka from amazonlinux"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Cloud"
 pubDatetime: 2019-04-05
 postSlug: "2019-04-05-how-to-yum-install-librdkafka-from-amazonlinux"
 tags:

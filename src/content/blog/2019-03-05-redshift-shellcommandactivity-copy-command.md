@@ -1,7 +1,7 @@
 ---
 title: "Redshift COPY ShellCommandActivity command PGPASSFILE"
 cover: "/uploads/2.webp"
-category: "AWS"
+category: "Data Engineering"
 pubDatetime: 2019-03-05
 postSlug: "2019-03-05-redshift-shellcommandactivity-copy-command"
 featured: false

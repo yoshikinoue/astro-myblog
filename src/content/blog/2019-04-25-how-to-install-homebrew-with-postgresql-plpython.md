@@ -1,7 +1,7 @@
 ---
 title: "mac の homebrew で postgresql pl/Python を使いたい"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-04-25
 postSlug: "2019-04-25-how-to-install-homebrew-with-postgresql-plpython"
 tags:

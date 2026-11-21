@@ -1,7 +1,7 @@
 ---
 title: "AWS Data PipelineのEC2でPython3を使う"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Data Engineering"
 pubDatetime: 2019-03-26
 postSlug: "2019-03-26-how-to-install-python3-from-aws-datapipeline-ec2"
 tags:

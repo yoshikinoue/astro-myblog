@@ -1,7 +1,7 @@
 ---
 title: "PythonでUnicode正規化と全角半角変換"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-03-13
 postSlug: "2019-03-13-python-unicode-normalize-japanese-zenkaku-hankaku-conversion"
 tags:

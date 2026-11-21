@@ -1,7 +1,7 @@
 ---
 title: "GitHub Deploy Key を複数登録してgit cloneする方法"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-03-19
 postSlug: "2019-03-19-github-add-multi-deploy-key"
 tags:

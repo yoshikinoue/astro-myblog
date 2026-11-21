@@ -1,7 +1,7 @@
 ---
 title: "python venv Error returned non-zero exit status 1"
 cover: "/uploads/2.webp"
-category: "Python"
+category: "Development"
 pubDatetime: 2018-11-22
 postSlug: "2018-11-22-python-venv-Error-returned-non-zero-exit-status-1"
 tags:

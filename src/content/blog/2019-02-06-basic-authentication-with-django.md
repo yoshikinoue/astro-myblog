@@ -1,7 +1,7 @@
 ---
 title: Basic authentication with Django
 cover: "/uploads/2.webp"
-category: "Django"
+category: "Development"
 pubDatetime: 2019-02-06
 postSlug: "2019-02-06-basic-authentication-with-django"
 tags:

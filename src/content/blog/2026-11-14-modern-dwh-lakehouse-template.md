@@ -2,7 +2,7 @@
 title: "【テンプレート】モダンDWH / Lakehouse アーキテクチャ設計ノート"
 pubDatetime: 2026-11-14T00:00:00.000Z
 postSlug: "modern-dwh-lakehouse-template"
-category: "Data Architecture"
+category: "Data Engineering"
 featured: false
 draft: true
 description: "BigQuery / Snowflake / Amazon Redshift / Apache Iceberg / DuckDB を活用したデータ基盤設計記事の執筆用テンプレート。"

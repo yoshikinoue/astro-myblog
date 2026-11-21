@@ -1,7 +1,7 @@
 ---
 title: "AWS DataPipeline S3 Redshift 読み込みに必要なものをインストール"
 cover: "/uploads/2.webp"
-category: "AWS"
+category: "Data Engineering"
 pubDatetime: 2019-02-13
 postSlug: "2019-02-13-aws-datapipeline"
 tags:

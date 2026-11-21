@@ -1,7 +1,7 @@
 ---
 title: "django 管理画面でモデルの保存時に追加で処理したい"
 cover: "/uploads/2.webp"
-category: "Django"
+category: "Development"
 pubDatetime: 2019-02-08
 postSlug: "2019-02-08-Django-ModelAdmin-savemodel-override"
 tags:

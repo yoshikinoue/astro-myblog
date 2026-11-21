@@ -1,7 +1,7 @@
 ---
 title: DjangoでDateTime フィールド同士をフォーマットを指定して比較する
 cover: "/uploads/2.webp"
-category: "Django"
+category: "Development"
 pubDatetime: 2019-02-07
 postSlug: "2019-02-07-Django-datetime-field-queryset-where"
 tags:

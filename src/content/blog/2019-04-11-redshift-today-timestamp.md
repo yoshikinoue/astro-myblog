@@ -1,7 +1,7 @@
 ---
 title: "AWS Redshift で今日のtimestampを取得"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Data Engineering"
 pubDatetime: 2019-04-11
 postSlug: "2019-04-11-redshift-today-timestamp"
 tags:

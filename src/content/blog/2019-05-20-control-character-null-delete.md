@@ -1,7 +1,7 @@
 ---
 title: "^@ NULL文字の削除"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-05-20
 postSlug: "2019-05-20-control-character-null-delete"
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "gatsbyjs で使ってる web font を Web Font Loader で呼んでみる"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-03-15
 postSlug: "2019-03-15-gatsbyjs-web-font-loader-plugin"
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "PythonでFileMakerDataAPIにアクセス"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-07-02
 postSlug: "2019-07-02-filemaker-data-api-python-client"
 tags:

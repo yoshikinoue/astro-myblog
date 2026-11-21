@@ -1,7 +1,7 @@
 ---
 title: "Redshift public schema 以外 dist_key sort_keyを確認する。"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Data Engineering"
 pubDatetime: 2019-10-01
 postSlug: "2019-10-01-redshift-public-schema-dist-key-sort-key"
 featured: false

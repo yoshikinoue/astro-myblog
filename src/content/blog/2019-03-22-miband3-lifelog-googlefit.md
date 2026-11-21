@@ -1,7 +1,7 @@
 ---
 title: "miband3をGoogleFitと連携して歩数と心拍数を記録する"
 cover: "/uploads/7.webp"
-category: "Lifehack"
+category: "Misc"
 pubDatetime: 2019-03-22
 postSlug: "2019-03-22-miband3-lifelog-googlefit"
 tags:

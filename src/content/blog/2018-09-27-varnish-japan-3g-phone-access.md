@@ -1,7 +1,7 @@
 ---
 title: Varnish4でガラケーIPアドレスのみアクセスを許可する
 cover: "/uploads/2.webp"
-category: "Varnish"
+category: "Cloud"
 pubDatetime: 2018-09-27
 postSlug: "2018-09-27-varnish-japan-3g-phone-access"
 tags:

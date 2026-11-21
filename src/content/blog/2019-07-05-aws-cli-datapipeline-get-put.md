@@ -1,7 +1,7 @@
 ---
 title: AWS CLI datapipeline で既存パイプラインのダウンロードとアップロード
 cover: /uploads/2.webp
-category: "Programming"
+category: "Data Engineering"
 pubDatetime: 2019-07-05T00:00:00.000Z
 postSlug: 2019-07-05-aws-cli-datapipeline-get-put
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Pythonでunicode whitespaceを置換する。"
 cover: "/uploads/2.webp"
-category: "Programming"
+category: "Development"
 pubDatetime: 2019-03-14
 postSlug: "2019-03-14-python-unicode-unicode-whitespace-replace"
 tags:

@@ -2,7 +2,7 @@
 title: "vagrantbox_centos_disksize"
 cover: "/uploads/2.webp"
 pubDatetime: 2018-09-30
-category: "VM"
+category: "Cloud"
 postSlug: "2018-09-30-vagrantbox-centos-disksize"
 tags:
   - Vagrant
