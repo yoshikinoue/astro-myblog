@@ -61,7 +61,7 @@
     prose-code:rounded prose-code:bg-skin-card 
     prose-code:bg-opacity-75 prose-code:px-1.5 prose-code:py-0.5 prose-code:font-code prose-code:!text-skin-base 
     prose-code:before:!content-[''] prose-code:after:!content-['']
-    prose-pre:rounded-lg prose-pre:border prose-pre:border-skin-line prose-pre:!text-skin-base prose-ol:!text-skin-base 
+    prose-pre:rounded-lg prose-pre:border prose-pre:border-skin-line prose-ol:!text-skin-base 
     prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent
     prose-table:text-skin-base prose-th:border
     prose-th:border-skin-line prose-td:border 
@@ -126,6 +126,17 @@
   pre code {
     white-space: pre;
     overflow-x: auto;
+  }
+
+  /* コードブロック内はシンタックスハイライト（Shiki）の色を優先し、
+     インラインコード用の prose-code スタイルを打ち消す。
+     言語指定なしブロックはトークンに色が付かないため、この指定がないと
+     サイト側の文字色（!text-skin-base）が効いて暗い背景に暗い文字になる */
+  .prose pre code {
+    color: inherit !important;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
   }
 }
 

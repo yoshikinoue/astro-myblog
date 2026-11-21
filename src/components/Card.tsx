@@ -8,6 +8,8 @@ export interface Props {
   href?: string;
   frontmatter: BlogFrontmatter;
   body?: string;
+  excerpt?: string;
+  readingTime?: string;
   secHeading?: boolean;
 }
 
@@ -16,11 +18,15 @@ export default function Card({
   href,
   frontmatter,
   body,
+  excerpt,
+  readingTime,
   secHeading = true,
 }: Props) {
   const { title, pubDatetime, description, category, tags } = frontmatter;
-  const readingTime = body ? getReadingTime(body) : undefined;
-  const summary = description?.trim() || (body ? getExcerpt(body, 110) : "");
+  const displayReadingTime =
+    readingTime ?? (body ? getReadingTime(body) : undefined);
+  const summary =
+    description?.trim() || excerpt || (body ? getExcerpt(body, 110) : "");
 
   return (
     <li className="my-4 rounded-lg border border-skin-line bg-skin-card bg-opacity-40 p-5 transition-all hover:border-skin-accent hover:bg-opacity-75">
@@ -31,7 +37,7 @@ export default function Card({
           </span>
         )}
         <Datetime datetime={pubDatetime} size="sm" />
-        {readingTime && (
+        {displayReadingTime && (
           <span className="flex items-center gap-1 font-code text-xs opacity-75">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +53,7 @@ export default function Card({
               <circle cx="12" cy="12" r="10" />
               <polyline points="12 6 12 12 16 14" />
             </svg>
-            <span>{readingTime}</span>
+            <span>{displayReadingTime}</span>
           </span>
         )}
       </div>

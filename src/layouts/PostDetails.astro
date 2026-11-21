@@ -303,6 +303,18 @@ const relatedPosts = posts
     margin-bottom: 0 !important;
     padding-top: 2.25rem !important;
   }
+  .code-scroll-fade {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 3rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
   .copy-code-btn {
     position: absolute;
     top: 0.5rem;
@@ -386,6 +398,29 @@ const relatedPosts = posts
       });
 
       wrapper.appendChild(copyButton);
+
+      // 横スクロールできる場合は右端にフェードを表示し、
+      // 末尾までスクロールしたら消す（スクロール示唆）
+      const fade = document.createElement("div");
+      fade.className = "code-scroll-fade";
+      fade.setAttribute("aria-hidden", "true");
+      wrapper.appendChild(fade);
+
+      const updateFade = () => {
+        const maxScroll = pre.scrollWidth - pre.clientWidth;
+        const canScroll = maxScroll > 1;
+        const atEnd = pre.scrollLeft >= maxScroll - 2;
+        if (canScroll && !atEnd) {
+          const bg = getComputedStyle(pre).backgroundColor;
+          fade.style.background = `linear-gradient(to right, transparent, ${bg})`;
+          fade.style.opacity = "1";
+        } else {
+          fade.style.opacity = "0";
+        }
+      };
+      pre.addEventListener("scroll", updateFade, { passive: true });
+      window.addEventListener("resize", updateFade);
+      updateFade();
     });
   }
 
