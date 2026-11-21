@@ -3,8 +3,8 @@ title: "Dataform を選んだ理由と、運用して分かったこと"
 pubDatetime: 2026-11-22T00:00:00.000Z
 postSlug: "dataform-choice-and-operations"
 category: "Data Engineering"
-featured: false
-draft: true
+featured: true
+draft: false
 description: "dbt と比較して Dataform を選んだ理由と、運用してみて分かったことのメモ。"
 tags:
   - bigquery
