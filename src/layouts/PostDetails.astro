@@ -77,9 +77,6 @@ const relatedPosts = posts
   author={author}
   description={description}
   ogImage={ogUrl}
-  ogType="article"
-  ogImageWidth={1200}
-  ogImageHeight={630}
   canonicalURL={canonicalURL}
 >
   <div
@@ -92,17 +89,16 @@ const relatedPosts = posts
 
   <Header />
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
-    <button
+    <a
+      href="/posts"
       class="focus-outline mb-2 mt-8 flex items-center gap-1 rounded px-2 py-1 text-sm hover:text-skin-accent"
-      onclick="history.back()"
-      type="button"
     >
       <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
         ><path
           d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
         ></path>
-      </svg><span>Go back</span>
-    </button>
+      </svg><span>記事一覧へ</span>
+    </a>
   </div>
 
   <main id="main-content">
@@ -139,7 +135,7 @@ const relatedPosts = posts
       </div>
       {
         tags && tags.length > 0 && (
-          <ul class="mt-3 flex flex-wrap gap-1.5" aria-label="Post tags">
+          <ul class="mt-3 flex flex-wrap gap-1.5" aria-label="記事のタグ">
             {tags.map(tag => (
               <li>
                 <a
@@ -229,7 +225,7 @@ const relatedPosts = posts
                 class="group flex h-full flex-col justify-between rounded-lg border border-skin-line bg-skin-card bg-opacity-40 p-4 transition-colors hover:border-skin-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent"
               >
                 <span class="font-code text-xs uppercase tracking-wider opacity-70">
-                  &larr; Previous Post
+                  &larr; 前の記事
                 </span>
                 <span class="mt-1 font-medium text-skin-accent group-hover:underline">
                   {olderPost.data.title}
@@ -244,7 +240,7 @@ const relatedPosts = posts
                 class="group flex h-full flex-col justify-between rounded-lg border border-skin-line bg-skin-card bg-opacity-40 p-4 text-right transition-colors hover:border-skin-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-skin-accent"
               >
                 <span class="font-code text-xs uppercase tracking-wider opacity-70">
-                  Next Post &rarr;
+                  次の記事 &rarr;
                 </span>
                 <span class="mt-1 font-medium text-skin-accent group-hover:underline">
                   {newerPost.data.title}
@@ -260,8 +256,8 @@ const relatedPosts = posts
       relatedPosts.length > 0 && (
         <section class="mt-10 border-t border-skin-line pt-8 !px-0">
           <div class="mb-4 flex items-baseline justify-between">
-            <h2 class="text-xl font-semibold tracking-wide">Related Posts</h2>
-            <span class="font-code text-xs opacity-70">Same Tech Stack</span>
+            <h2 class="text-xl font-semibold tracking-wide">関連記事</h2>
+            <span class="font-code text-xs opacity-70">同じ技術スタックの記事</span>
           </div>
           <ul>
             {relatedPosts.map(related => (
@@ -375,24 +371,24 @@ const relatedPosts = posts
       const copyButton = document.createElement("button");
       copyButton.type = "button";
       copyButton.className = "copy-code-btn";
-      copyButton.setAttribute("aria-label", "Copy code to clipboard");
-      copyButton.textContent = "Copy";
+      copyButton.setAttribute("aria-label", "コードをコピー");
+      copyButton.textContent = "コピー";
 
       copyButton.addEventListener("click", async () => {
         const codeEl = pre.querySelector("code");
         const text = codeEl ? codeEl.innerText : pre.textContent ?? "";
         try {
           await navigator.clipboard.writeText(text);
-          copyButton.textContent = "Copied!";
+          copyButton.textContent = "コピーしました";
           copyButton.classList.add("is-copied");
           setTimeout(() => {
-            copyButton.textContent = "Copy";
+            copyButton.textContent = "コピー";
             copyButton.classList.remove("is-copied");
           }, 2000);
         } catch {
-          copyButton.textContent = "Failed";
+          copyButton.textContent = "失敗しました";
           setTimeout(() => {
-            copyButton.textContent = "Copy";
+            copyButton.textContent = "コピー";
           }, 2000);
         }
       });

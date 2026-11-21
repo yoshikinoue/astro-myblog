@@ -6,7 +6,7 @@ const stripFrontmatter = (content: string): string =>
   content.replace(/^\s*---[\s\S]*?---\s*/, "");
 
 export const getReadingTime = (content?: string): string => {
-  if (!content) return "1 min read";
+  if (!content) return "約1分";
 
   const withoutFrontmatter = stripFrontmatter(content);
   const cleanText = withoutFrontmatter
@@ -20,7 +20,7 @@ export const getReadingTime = (content?: string): string => {
     .replace(/\s+/g, "");
 
   const minutes = Math.max(1, Math.ceil(cleanText.length / 500));
-  return `${minutes} min read`;
+  return `約${minutes}分`;
 };
 
 export const getExcerpt = (content?: string, maxLength = 120): string => {

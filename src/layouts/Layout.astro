@@ -14,6 +14,7 @@ export interface Props {
   ogImageWidth?: number;
   ogImageHeight?: number;
   canonicalURL?: string;
+  wide?: boolean;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   ogImageWidth,
   ogImageHeight,
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  wide = false,
 } = Astro.props;
 
 const socialImageURL = new URL(
@@ -101,7 +103,7 @@ const socialImageURL = new URL(
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>
-  <body>
+  <body class={wide ? "layout-wide" : undefined}>
     <slot />
     <BackToTop />
   </body>

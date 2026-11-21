@@ -59,7 +59,7 @@ const techStacks = [
 ];
 ---
 
-<Layout>
+<Layout wide>
   <Header />
   <main id="main-content">
     <section id="hero">
@@ -73,8 +73,8 @@ const techStacks = [
           rel="noopener noreferrer"
           href="/rss.xml"
           class="rss-link"
-          aria-label="rss feed"
-          title="RSS Feed"
+          aria-label="RSSフィード"
+          title="RSSフィード"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon" aria-hidden="true"
             ><path
@@ -93,7 +93,7 @@ const techStacks = [
         DWH / Lakehouse 基盤の設計、ETL/ELT パイプライン運用、SQL チューニング、実務での障害・トラブルシューティング知見を発信しています。
       </p>
 
-      <div class="stack-grid" aria-label="Technical Stack">
+      <div class="stack-grid" aria-label="技術スタック">
         {
           techStacks.map(group => (
             <div
@@ -103,7 +103,7 @@ const techStacks = [
             >
               <div class="stack-card-header">
                 <h2>{group.title}</h2>
-                {group.highlight && <span class="core-badge">CORE</span>}
+                {group.highlight && <span class="core-badge">中核</span>}
               </div>
               <div class="stack-pills">
                 {group.items.map(item => (
@@ -118,19 +118,19 @@ const techStacks = [
       </div>
 
       <div class="stats-social-bar">
-        <div class="stats-group" aria-label="Blog metrics">
+        <div class="stats-group" aria-label="ブログの統計">
           <span class="stat-item">
-            <span class="stat-label">Articles:</span>
+            <span class="stat-label">記事:</span>
             <span class="stat-value">{sortedPosts.length}</span>
           </span>
           <span class="stat-sep" aria-hidden="true">/</span>
           <span class="stat-item">
-            <span class="stat-label">Tags:</span>
+            <span class="stat-label">タグ:</span>
             <span class="stat-value">{uniqueTags.length}</span>
           </span>
           <span class="stat-sep" aria-hidden="true">/</span>
           <span class="stat-item">
-            <span class="stat-label">Focus:</span>
+            <span class="stat-label">注力領域:</span>
             <span class="stat-value">Modern Data Stack</span>
           </span>
         </div>
@@ -152,10 +152,10 @@ const techStacks = [
         <>
           <section id="featured">
             <div class="section-heading">
-              <h2>Featured</h2>
-              <span class="section-sub font-code">Picked Data Engineering Notes</span>
+              <h2>注目記事</h2>
+              <span class="section-sub font-code">おすすめのデータエンジニアリング記事</span>
             </div>
-            <ul>
+            <ul class="card-grid">
               {featuredPosts.map(({ data, body }) => (
                 <Card
                   href={`/posts/${slugify(data)}`}
@@ -173,10 +173,10 @@ const techStacks = [
 
     <section id="recent-posts">
       <div class="section-heading">
-        <h2>Recent Posts</h2>
-        <span class="section-sub font-code">Latest Logs</span>
+        <h2>新着記事</h2>
+        <span class="section-sub font-code">最新の記事</span>
       </div>
-      <ul>
+      <ul class="card-grid">
         {
           recentPosts.map(({ data, body }) => (
             <Card
@@ -191,7 +191,7 @@ const techStacks = [
       </ul>
       <div class="all-posts-btn-wrapper">
         <LinkButton href="/posts">
-          All Posts
+          すべての記事を見る
           <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
             ><path
               d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
@@ -285,6 +285,19 @@ const techStacks = [
   }
 
   /* ===== Featured & Recent Posts Sections ===== */
+  /* PC では記事カードを2列にする（Tailwind の screens は sm のみの設定のため素の CSS で書く） */
+  @media (min-width: 1024px) {
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 1.5rem;
+      row-gap: 1rem;
+    }
+    .card-grid > li {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
   #featured,
   #recent-posts {
     @apply pb-6 pt-10;

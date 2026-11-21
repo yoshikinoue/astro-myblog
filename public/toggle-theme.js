@@ -30,13 +30,13 @@ function reflectPreference() {
     .querySelector("#theme-btn")
     ?.setAttribute(
       "aria-label",
-      themeValue === "dark" ? "Switch to light mode" : "Switch to dark mode"
+      themeValue === "dark" ? "ライトモードに切り替え" : "ダークモードに切り替え"
     );
   document
     .querySelector("#theme-btn")
     ?.setAttribute(
       "title",
-      themeValue === "dark" ? "Switch to light mode" : "Switch to dark mode"
+      themeValue === "dark" ? "ライトモードに切り替え" : "ダークモードに切り替え"
     );
 }
 

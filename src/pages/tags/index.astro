@@ -25,9 +25,9 @@ const tags = [...tagCounts.entries()]
   .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
+<Layout title={`タグ | ${SITE.title}`}>
   <Header activeNav="tags" />
-  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
+  <Main pageTitle="タグ" pageDesc="記事で使われているタグの一覧です。">
     <ul>
       {tags.map(tag => <Tag name={tag.name} count={tag.count} size="lg" />)}
     </ul>
